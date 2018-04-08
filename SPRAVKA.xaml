@@ -1,0 +1,87 @@
+﻿<Page
+    x:Class="Мастерконд.Документы.SPRAVKA"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Мастерконд.Документы"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer ScrollViewer.HorizontalScrollMode="Auto" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="White">
+
+        
+        <RelativePanel ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <TextBlock x:Name="TextBlockCreateDocuments5" Text="ВОЗМОЖНОСТИ ПРИЛОЖЕНИЯ МАСТЕРКОНД.ДОКУМЕНТЫ"  FontSize="16" FontWeight="SemiBold" Margin="20,10,0,0" Foreground="Green"/>
+            <TextBlock x:Name="TextBlockCreateDocumentsOpisanie5" Text="В разделе 'Документы юр.лиц' вы можете быстро создать смету (коммерческое предложение), счёт, договор, акт, товарную накладную для вашей сделки. Данная программа расчитана на компании и индивидуальных предпринимателей, работающих на территории Российской Федерации и применяющих Упрощенную Систему Налогообложения. Шаблоны документов вшиты в программу и не редактируется, то есть отредактировать полностью весь договор, счет, акт, накладную не получится, за исключением вставки в поля программы своих данных. Однако применяемые в программе шаблоны полностью соответствуют законодательству Российской Федерации и не вызывают нареканий со стороны юристов контрагентов." TextWrapping="WrapWholeWords"  Margin="20,15,0,0" RelativePanel.Below="TextBlockCreateDocuments5"  />
+
+
+            <TextBlock x:Name="TextBlockCreateDocumentsOpisanie15" Text="В разделе 'Добавить реквизиты контрагента' вы можете быстро создать файл реквизитов для дальнейшего использования в разделе 'Документы юр.лица'. " TextWrapping="WrapWholeWords"  Margin="20,20,0,0" RelativePanel.Below="TextBlockCreateDocumentsOpisanie5"  />
+            <TextBlock x:Name="TextBlockCreateDocumentsOpisanie25" Text="В разделе 'Редактировать мои реквизиты' вы можете быстро создать или редактировать файл своих реквизитов для дальнейшего использования в разделе 'Документы юр.лица'. " TextWrapping="WrapWholeWords"  Margin="20,20,0,0" RelativePanel.Below="TextBlockCreateDocumentsOpisanie15"  />
+
+            <TextBlock x:Name="TextBlockCreateDocumentsOpisanie35" Text="При заполнении полей в программе вы можете использовать HTML-теги, например тег &lt;br&gt; для размещения информации на разных строках." TextWrapping="WrapWholeWords"  Margin="20,20,0,0" RelativePanel.Below="TextBlockCreateDocumentsOpisanie25"  />
+
+            <TextBlock x:Name="TextBlockCreateDocumentsOpisanie45" Text="Чтобы вставить изображение в шапку документа, воспользуйтесь онлайн Base64-конвертерами, например base64-image.de. Преобразуйте jpeg-изображение размером не более 200х200px(качество 70%) в Base64-код и вставьте в соответствующее поле. Если вывод после конвертера будет иметь вид  &lt;img src=&quot;data:image/jpg; base64, iVBORw0KGgoAAAANSUhEUgAAADIA....&quot;&gt;, то в поля программы необходимо вставлять только код вида iVBORw0KGgoAAAANSUhEUgAAADIA...., без атрибутов тега &lt;img&gt;." TextWrapping="WrapWholeWords"  Margin="20,20,0,0" RelativePanel.Below="TextBlockCreateDocumentsOpisanie35"  />
+
+            <TextBlock x:Name="TextBlockCreateDocumentsOpisanie55" Text="Аналогично вы сможете вставить в документы свою печать с подписью. Поставьте подпись и печать на белом листе бумаги, отсканируйте, обрежьте в графической программе лишнее и преобразите результат в jpeg, размер 200х200px. Качество jpeg при сохранении установите в размере 70%, чтобы получившийся из изображения Base64-код поместился в поле ввода программы. При использовании изображений большего размера и качества вы не сможете вставить код в соответствующее поле ввода в программе. Опция вставки печати и подписи служит для отправки цифровых версий документов вашим контрагентам по электронной почте для ускорения, например, оплаты товаров и услуг." TextWrapping="WrapWholeWords"  Margin="20,20,0,0" RelativePanel.Below="TextBlockCreateDocumentsOpisanie45"  />
+
+            <HyperlinkButton x:Name="SupportedPrintersLink" NavigateUri="https://support.microsoft.com/ru-ru/help/3083720/supported-printers-for-windows-10-mobile" RelativePanel.Below="TextBlockCreateDocumentsOpisanie55" Margin="20,20,0,0">
+                <TextBlock x:Name="TBHB" Text="Список принтеров, имеющих поддержку печати с Windows 10 Mobile" Foreground="Green" TextWrapping="WrapWholeWords"/>
+            </HyperlinkButton>
+
+            <TextBlock RelativePanel.Below="SupportedPrintersLink" Margin="20,20,0,0" />
+
+        </RelativePanel>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="700" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie15.Width" Value="700" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie25.Width" Value="700" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie35.Width" Value="700" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie45.Width" Value="700" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie55.Width" Value="700" />
+                        <Setter Target="TBHB.Width" Value="700" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="WideState2">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="520" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="440" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie15.Width" Value="420" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie25.Width" Value="420" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie35.Width" Value="420" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie45.Width" Value="420" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie55.Width" Value="420" />
+                        <Setter Target="TBHB.Width" Value="420" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocuments5.Width" Value="300" />
+                        <Setter Target="TextBlockCreateDocuments5.TextWrapping" Value="WrapWholeWords" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="320" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie15.Width" Value="320" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie25.Width" Value="320" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie35.Width" Value="320" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie45.Width" Value="320" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie55.Width" Value="320" />
+                        <Setter Target="TBHB.Width" Value="320" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+    </ScrollViewer>
+    
+
+</Page>

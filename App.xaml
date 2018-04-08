@@ -1,0 +1,68 @@
+﻿<Application
+    x:Class="Мастерконд.Документы.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Мастерконд.Документы"
+    RequestedTheme="Light">
+
+    <Application.Resources>
+        <SolidColorBrush x:Key="SystemControlHighlightAccentBrush" Color="#FF99BC64"/>
+        <SolidColorBrush x:Key="SystemControlForegroundAccentBrush" Color="#FF99BC64"/>
+        <SolidColorBrush x:Key="ContentDialogBorderThemeBrush" Color="#FF99BC64"/>
+        <SolidColorBrush x:Key="JumpListDefaultEnabledBackground" Color="#FF99BC64"/>
+        <SolidColorBrush x:Key="LoopingSelectorSelectionBackgroundThemeBrush" Color="#FF99BC64"/>
+        <SolidColorBrush x:Key="SystemControlHighlightAltAccentBrush" Color="#FF99BC64"/>
+
+        <SolidColorBrush x:Key="SystemControlHighlightAltListAccentLowBrush" Color="#FF99BC64"/>
+        <SolidColorBrush x:Key="SystemControlHighlightAltListAccentMediumBrush" Color="#FF99BC64"/>
+        <SolidColorBrush x:Key="SystemControlHighlightAltListAccentHighBrush" Color="#FF99BC64"/>
+
+        <SolidColorBrush x:Key="SystemControlHyperlinkTextBrush" Color="#FF99BC64"/>
+
+        
+
+        <!-- ОСНОВНАЯ ЧАСТЬ ЦВЕТОВОГО ОБЕСПЕЧЕНИЯ МЕНЮ-->
+        <SolidColorBrush x:Key="SystemControlHighlightListAccentLowBrush" Color="#FF99BC64"/>
+        <SolidColorBrush x:Key="SystemControlHighlightListAccentMediumBrush" Color="#FF99BC64"/>
+        <SolidColorBrush x:Key="SystemControlHighlightListAccentHighBrush" Color="#FF99BC64"/>
+        <SolidColorBrush x:Key="SystemControlHighlightAltBaseHighBrush" Color="White"/>
+
+        <SolidColorBrush x:Key="SystemControlHighlightListLowBrush" Color="#FF99BC39"/>
+        <SolidColorBrush x:Key="SystemControlHighlightListMediumBrush" Color="#FF99BC39"/>
+        <!-- КОНЕЦ ОСНОВНАЯ ЧАСТЬ ЦВЕТОВОГО ОБЕСПЕЧЕНИЯ МЕНЮ-->
+
+        <Style TargetType="TextBox">
+            <Setter Property="MinHeight" Value="28" />
+            <Setter Property="MaxHeight" Value="300"/>
+            <Setter Property="BorderThickness" Value="1.1" />
+            <Setter Property="FontFamily" Value="Segoe WP SemiLight"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
+        <Style TargetType="AutoSuggestBox">
+            <Setter Property="MinHeight" Value="28" />
+            <Setter Property="MaxHeight" Value="300"/>
+            <Setter Property="BorderThickness" Value="1.0" />
+            <Setter Property="FontFamily" Value="Segoe WP SemiLight"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="WrapWholeWords"/>
+            <Setter Property="FontFamily" Value="Segoe WP SemiLight"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Opacity" Value="80" />
+        </Style>
+
+        <Style TargetType="SplitView">
+            <Setter Property="Background" Value="#FFF3F3F3"/>
+            <Setter Property="PaneBackground" Value="#FFF3F3F3"/>
+        </Style>
+
+    </Application.Resources>
+
+</Application>

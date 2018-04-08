@@ -1,0 +1,363 @@
+﻿<Page
+    x:Class="Мастерконд.Документы.Tehzakl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Мастерконд.Документы"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="WrapWholeWords"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="MinHeight" Value="28" />
+            <Setter Property="MaxHeight" Value="300"/>
+            <Setter Property="BorderThickness" Value="1.3" />
+            <Setter Property="FontFamily" Value="Segoe WP SemiLight"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextWrapping" Value="WrapWholeWords"/>
+        </Style>
+
+    </Page.Resources>
+
+
+    <ScrollViewer ScrollViewer.HorizontalScrollMode="Auto" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="White">
+        <RelativePanel ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <TextBlock x:Name="TextBlockCreateDocuments5" Text="ТЕХНИЧЕСКОЕ ЗАКЛЮЧЕНИЕ"  FontSize="16" FontWeight="SemiBold" Margin="20,10,0,0" Foreground="Green"/>
+            <TextBlock x:Name="TextBlockCreateDocumentsOpisanie5" Text="В этом разделе Вы сможете создать техническое заключения по различным неисправностям и дефектам в вашей сфере деятельности (например, техническое заключение по поводу неисправности камеры видеонаблюдения или неисправности платы управления какого-либо устройства и т.д.)" TextWrapping="WrapWholeWords"  Margin="20,15,0,0" RelativePanel.Below="TextBlockCreateDocuments5"  />
+
+            <Button x:Name="LoadNastrojki5" Content="Загрузить файл технического заключения (.tehdata)" RelativePanel.Below="TextBlockCreateDocumentsOpisanie5" Margin="20,20,0,0" Click="LoadNastrojki5_Click" Background="#99BC64" Foreground="White"/>
+
+            <TextBlock x:Name="TextBlock51" FontWeight="SemiBold" Text="РЕКВИЗИТЫ КОНТРАГЕНТА" RelativePanel.Below="LoadNastrojki5" Margin="20,15,0,0"  FontSize="15"/>
+            <Button x:Name="LoadRekv5" Content="Загрузить реквизиты контрагента" RelativePanel.Below="TextBlock51" Margin="20,20,0,0" Click="LoadRekviziti5_Click"/>
+            <TextBlock x:Name="TextBlockFullNameKontr5" Text="Наименование контрагента (полностью):"  RelativePanel.Below="LoadRekv5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxFullNameKontr5"  RelativePanel.Below="TextBlockFullNameKontr5" Margin="20,5,0,0" Width="300" MinHeight="28"/>
+            <TextBlock x:Name="TextBlockSokrNameKontr5" Text="Наименование контрагента (сокращенно):"  RelativePanel.Below="TextBoxFullNameKontr5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxSokrNameKontr5"  RelativePanel.Below="TextBlockSokrNameKontr5" Margin="20,5,0,0" Width="300" MinHeight="28"/>
+            <TextBlock x:Name="TextBlockINN5" RelativePanel.Below="TextBoxSokrNameKontr5" Text="ИНН контрагента:"  Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxINN5" RelativePanel.Below="TextBlockINN5" Margin="20,5,0,0" Width="300" MinHeight="28"/>
+            <TextBlock x:Name="TextBlockKPP5" RelativePanel.Below="TextBoxINN5" Margin="20,15,0,0" Text="КПП контрагента:"  />
+            <TextBox x:Name="TextBoxKPP5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockKPP5" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockOGRN5" Text="ОГРН контрагента:"  RelativePanel.Below="TextBoxKPP5" Margin="20,15,0,0"/>
+            <TextBox x:Name="TextBoxOGRN5" RelativePanel.Below="TextBlockOGRN5" Margin="20,5,0,0" Width="300" MinHeight="28"/>
+            <TextBlock x:Name="TextBlockBankRekv5" Text="Банковские реквизиты:"  Margin="20,15,0,0" RelativePanel.Below="TextBoxOGRN5" />
+            <TextBox x:Name="TextBoxBankRekv5" RelativePanel.Below="TextBlockBankRekv5" Width="300" MinHeight="28" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockDolzhnostDirector5" RelativePanel.Below="TextBoxBankRekv5" Text="Должность руководителя:" Margin="20,15,0,0"  />
+            <TextBox x:Name="TextBoxDolzhnostDirector5" RelativePanel.Below="TextBlockDolzhnostDirector5" Margin="20,5,0,0" Width="300" MinHeight="28"/>
+            <TextBlock x:Name="TextBlockVlice5" Width="300" MinHeight="28" Height="60" TextWrapping="WrapWholeWords" Text="В лице ...(например, Генерального директора Петрова Ивана Ивановича, действующего на основании Устава):" Margin="20,15,0,0" RelativePanel.Below="TextBoxDolzhnostDirector5"/>
+            <TextBox x:Name="TextBoxVlice5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockVlice5" Margin="20,5,0,0"/>
+            <TextBlock x:Name="TextBlockRukSokr5" Text="ФИО руководителя(сокращенно):"  Margin="20,15,0,0" RelativePanel.Below="TextBoxVlice5" />
+            <TextBox x:Name="TextBoxRukSokr5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockRukSokr5" Margin="20,5,0,0"/>
+            <TextBlock x:Name="TextBlockUrAddr5"  Margin="20,15,0,0" Text="Юридический адрес:" RelativePanel.Below="TextBoxRukSokr5" />
+            <TextBox x:Name="TextBoxUrAddr5" Margin="20,5,0,0" RelativePanel.Below="TextBlockUrAddr5" Width="300" MinHeight="28"/>
+            <TextBlock x:Name="TextBlockFactAddr5" Margin="20,15,0,0"  RelativePanel.Below="TextBoxUrAddr5" Text="Фактический адрес:" />
+            <TextBox x:Name="TextBoxFactAddr5" Margin="20,5,0,0" RelativePanel.Below="TextBlockFactAddr5" Width="300" MinHeight="28" />
+            <TextBlock x:Name="TextBlockPhone5" Margin="20,15,0,0"  RelativePanel.Below="TextBoxFactAddr5" Text="Телефон:"/>
+            <TextBox x:Name="TextBoxPhone5" Width="300" MinHeight="28" Margin="20,5,0,0" RelativePanel.Below="TextBlockPhone5"/>
+            <TextBlock x:Name="TextBlockFIOOtvetstvennij5" Margin="20,15,0,0"  RelativePanel.Below="TextBoxPhone5" Text="ФИО ответственного со стороны Заказчика за исполнение Договора:" TextWrapping="WrapWholeWords" Width="300" MinHeight="28"/>
+            <TextBox x:Name="TextBoxFIOOtvetstvennij5" Width="300" MinHeight="28" Margin="20,5,0,0" RelativePanel.Below="TextBlockFIOOtvetstvennij5"/>
+            <TextBlock x:Name="TextBlockMobile5"  Text="Мобильный телефон ответственного:" RelativePanel.Below="TextBoxFIOOtvetstvennij5" Margin="20,15,0,0"/>
+            <TextBox x:Name="TextBoxMobile5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMobile5" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockEmail5" Text="Электронная почта:"  RelativePanel.Below="TextBoxMobile5" Margin="20,15,0,0"/>
+            <TextBox x:Name="TextBoxEmail5" Width="300" MinHeight="28" Margin="20,5,0,0" RelativePanel.Below="TextBlockEmail5" />
+            <TextBlock x:Name="TextBlockSajt5"  RelativePanel.Below="TextBoxEmail5" Margin="20,15,0,0" Text="Сайт:" />
+            <TextBox x:Name="TextBoxSajt5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockSajt5" Margin="20,5,0,0" />
+
+            <Button x:Name="SaveNewRekviziti5" Content="Сохранить/обновить реквизиты контрагента" RelativePanel.Below="TextBoxSajt5" Click="SaveNewRekviziti5_Click" Margin="20,20,0,0"/>
+
+            <TextBlock x:Name="TextBlock511" FontWeight="SemiBold" Text="МОИ РЕКВИЗИТЫ" RelativePanel.Below="LoadNastrojki5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <Button x:Name="LoadMoiRekv5" RelativePanel.Below="TextBlock511" RelativePanel.RightOf="TextBlock51" Content="Загрузить мои реквизиты" Margin="220,20,40,0" Click="LoadMoiRekv5_Click" />
+            <TextBlock x:Name="TextBlockMoeNaimenovaniePolnoe5" RelativePanel.Below="LoadMoiRekv5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0"  Text="Мое наименование(полностью):"/>
+            <TextBox x:Name="TextBoxMoeNaimenovaniePolnoe5" RelativePanel.Below="TextBlockMoeNaimenovaniePolnoe5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" Width="300" MinHeight="28"/>
+            <TextBlock x:Name="TextBlockMoeNaimenovanieSokr5" RelativePanel.Below="TextBoxMoeNaimenovaniePolnoe5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" Text="Мое наименование (сокращенно):"  />
+            <TextBox x:Name="TextBoxMoeNaimenovanieSokr5" RelativePanel.Below="TextBlockMoeNaimenovanieSokr5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" Width="300" MinHeight="28" />
+            <TextBlock x:Name="TextBlockMojINN5" RelativePanel.Below="TextBoxMoeNaimenovanieSokr5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" Text="Мой ИНН:"  />
+            <TextBox x:Name="TextBoxMojINN5" RelativePanel.Below="TextBlockMojINN5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" Width="300" MinHeight="28" />
+            <TextBlock x:Name="TextBlockMojKPP5" RelativePanel.Below="TextBoxMojINN5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" Text="Мой КПП:"  />
+            <TextBox x:Name="TextBoxMojKPP5" RelativePanel.Below="TextBlockMojKPP5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" Width="300" MinHeight="28" />
+            <TextBlock x:Name="TextBlockMojOGRN5" Text="Мой ОГРН:" RelativePanel.Below="TextBoxMojKPP5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0"  />
+            <TextBox x:Name="TextBoxMojOGRN5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMojOGRN5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+
+            <TextBlock x:Name="TextBlockMoiBankRekv5"  RelativePanel.Below="TextBoxMojOGRN5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" Text="Наименование моего банка:" />
+            <TextBox x:Name="TextBoxMoiBankName5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMoiBankRekv5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMoiBankBIK5"  Text="БИК моего банка:" RelativePanel.Below="TextBoxMoiBankName5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0"/>
+            <TextBox x:Name="TextBoxMoiBankBIK5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMoiBankBIK5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMoiBankKorr5"  Text="Корр.счет моего банка:" RelativePanel.Below="TextBoxMoiBankBIK5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMoiBankKorr5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMoiBankKorr5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMoiRaschetnijSchet5" Text="Номер моего расчетного счета:"  RelativePanel.Below="TextBoxMoiBankKorr5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMoiRaschetnijSchet5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMoiRaschetnijSchet5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+
+            <TextBlock x:Name="TextBlockMojaRukDolzhnost5"  RelativePanel.Below="TextBoxMoiRaschetnijSchet5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" Text="Моя должность руководителя:" />
+            <TextBox x:Name="TextBoxMojaRukDolzhnost5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMojaRukDolzhnost5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMojVlice5"  TextWrapping="WrapWholeWords" Text="В лице...(например, Генерального директора Петрова Ивана Ивановича, действующего на основании Устава):" Height="60" Margin="220,15,0,0" RelativePanel.Below="TextBoxMojaRukDolzhnost5" RelativePanel.RightOf="TextBlock51" Width="300" MinHeight="28"/>
+            <TextBox x:Name="TextBoxMojVlice5" Width="300" MinHeight="28" RelativePanel.RightOf="TextBlock51" RelativePanel.Below="TextBlockMojVlice5" Margin="220,5,0,0"/>
+            <TextBlock x:Name="TextBlockMojFIORuk5" Text="Моя ФИО руководителя (сокращенно):"  RelativePanel.Below="TextBoxMojVlice5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMojFIORuk5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMojFIORuk5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMojURAddr5"  Text="Мой юридический адрес:" RelativePanel.Below="TextBoxMojFIORuk5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0"/>
+            <TextBox x:Name="TextBoxMojUrAddr5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMojURAddr5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMojFactAddr5"  Text="Мой фактический адрес:" RelativePanel.Below="TextBoxMojUrAddr5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMojFackAddr5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMojFactAddr5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMojPhone5" Text="Мой телефон:"  RelativePanel.Below="TextBoxMojFackAddr5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMojPhone5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMojPhone5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMojMobile5" Text="Мой мобильный телефон:"  RelativePanel.Below="TextBoxMojPhone5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMojMobile5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMojMobile5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMojEmail5" Text="Моя электронная почта:"  RelativePanel.Below="TextBoxMojMobile5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMojEmail5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMojEmail5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMojSait5" Text="Мой сайт:"  RelativePanel.Below="TextBoxMojEmail5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMojSait5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMojSait5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <CheckBox x:Name="CHeckBoxSchapka5" Content="Использовать в документах шапку с логотипом и слоганом" RelativePanel.Below="TextBoxMojSait5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+
+            <TextBlock x:Name="TextBlockMojLogoPDF"  Text="Мой логотип в шапку документов (jpeg, рекомендуемый размер по ширине кратный 150, при замене изображения старый файл будет удален):" TextWrapping="WrapWholeWords" Width="300" RelativePanel.Below="CHeckBoxSchapka5" RelativePanel.RightOf="TextBlock51"  Margin="220,15,0,0" />
+            <Image x:Name="ImageLogo" MaxWidth="300" MaxHeight="300" RelativePanel.Below="TextBlockMojLogoPDF"  Margin="220,5,0,0" RelativePanel.RightOf="TextBlock51"/>
+            <Button x:Name="ButtonLogo" RelativePanel.Below="ImageLogo" Margin="220,5,0,0" Content="Выбрать изображение" Click="ButtonLogo_Click" RelativePanel.RightOf="TextBlock51"/>
+
+
+            <TextBlock x:Name="TextBlockMojLogo5"  Text="Мой логотип в шапку документов (jpeg в Base64, рекомендуемый размер 200x30):" TextWrapping="WrapWholeWords" Width="300" MinHeight="28" RelativePanel.Below="ButtonLogo" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMojLogo5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMojLogo5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMojSlogan5"  Text="Мой слоган в шапку документов:" RelativePanel.Below="TextBoxMojLogo5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMojSlogan5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMojSlogan5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+
+            <TextBlock x:Name="TextBlockMoiPechatPodpisPDF" Text="Моя печать и подпись (скан, размер кратно 300x300, при замене изображения старый файл будет удален):" TextWrapping="WrapWholeWords" Width="300"    RelativePanel.Below="TextBoxMojSlogan5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <Image x:Name="ImageMoiPechatPodpis" RelativePanel.Below="TextBlockMoiPechatPodpisPDF" MaxHeight="300" MaxWidth="300" Margin="220,5,0,0" RelativePanel.RightOf="TextBlock51"/>
+            <Button x:Name="ButtonPechatPodpis" RelativePanel.Below="ImageMoiPechatPodpis" Margin="220,5,0,0" Content="Выбрать изображение" Click="ButtonPechatPodpis_Click" RelativePanel.RightOf="TextBlock51"/>
+
+
+            <TextBlock x:Name="TextBlockMoiPechatPodpis5" Text="Моя печать и подпись (скан, размер 200x200, jpeg качество 70% Base64):" TextWrapping="WrapWholeWords" Width="300" MinHeight="28"  RelativePanel.RightOf="TextBlock51" RelativePanel.Below="ButtonPechatPodpis" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMoiPechatPodpis5" Width="300" MinHeight="28" RelativePanel.RightOf="TextBlock51" RelativePanel.Below="TextBlockMoiPechatPodpis5" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockUslugiPo5" Text="Компания оказывает услуги по...:(например, монтажу кондиционеров)" TextWrapping="WrapWholeWords" Width="300" MinHeight="28" RelativePanel.Below="TextBoxMoiPechatPodpis5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0"  />
+            <TextBox x:Name="TextBoxUslugiPo5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockUslugiPo5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <Button x:Name="SaveMoiNewRekv" Content="Сохранить/обновить мои реквизиты" RelativePanel.Below="TextBoxUslugiPo5" RelativePanel.RightOf="TextBlock51" Margin="220,20,0,0" Click="SaveMoiNewRekv_Click"/>
+
+            <TextBlock x:Name="TextBlockDanniePoDokumentam5" FontWeight="SemiBold" Text="ДАННЫЕ ДЛЯ ТЕХНИЧЕСКОГО ЗАКЛЮЧЕНИЯ"  Margin="20,25,0,0" RelativePanel.Below="SaveNewRekviziti5" />
+            <TextBlock x:Name="TextBlockDataTehZakl5" Text="Дата технического заключения:"  Margin="20,15,0,0" RelativePanel.Below="TextBlockDanniePoDokumentam5"/>
+            <TextBox x:Name="TextBoxDataTehZakl5" Width="300" MinHeight="28" RelativePanel.Below="TextBlockDataTehZakl5" Margin="20,5,0,0"/>
+            <TextBlock x:Name="TextBlockNomerTehZakl" Text="Номер технического заключения:"  Margin="20,15,0,0" RelativePanel.Below="TextBoxDataTehZakl5" />
+            <TextBox x:Name="TextBoxNomerTehZakl" RelativePanel.Below="TextBlockNomerTehZakl" Width="300" MinHeight="28" Margin="20,5,0,0"/>
+            <TextBlock x:Name="TextBlockKDogovory" Text=" Заключение прилагается к Договору № ... (например, 15 от 5 февраля 2016 года):" TextWrapping="WrapWholeWords" Width="300" MinHeight="28" RelativePanel.Below="TextBoxNomerTehZakl" Margin="20,15,0,0"  />
+            <TextBox x:Name="TextBoxKDogovory" Width="300" MinHeight="28" RelativePanel.Below="TextBlockKDogovory" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockGorodZaklDogovora" Text="Город, в котором выполнено тех.заключение (например, г.Ковров):" TextWrapping="WrapWholeWords" Width="300" MinHeight="28" RelativePanel.Below="TextBoxKDogovory" Margin="20,15,0,0"  />
+            <TextBox x:Name="TextBoxGorodZaklDogovora" Width="300" MinHeight="28" RelativePanel.Below="TextBlockGorodZaklDogovora" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockNaimenovanieOborudovanija" Text="Наименование оборудования, серийный номер:" TextWrapping="WrapWholeWords" Width="300" MinHeight="28" RelativePanel.Below="TextBoxGorodZaklDogovora" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxNaimenovanieOborudovanija" Width="300" MinHeight="28" RelativePanel.Below="TextBlockNaimenovanieOborudovanija" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockMestoUstanovkiOborudovanija" Text="Место установки оборудования (например, кабинет 102):" TextWrapping="WrapWholeWords" Width="300" MinHeight="28" Margin="20,15,0,0" RelativePanel.Below="TextBoxNaimenovanieOborudovanija" />
+            <TextBox x:Name="TextBoxMestoUastanovkiOborudovanija" Width="300" MinHeight="28" RelativePanel.Below="TextBlockMestoUstanovkiOborudovanija" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockPrichinaObrvService" Text="Причина обращения в сервисно-ремонтную службу:" TextWrapping="WrapWholeWords" Width="300" MinHeight="28"  RelativePanel.Below="TextBoxMestoUastanovkiOborudovanija" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxPrichinaObrvService" Width="300" MinHeight="28" RelativePanel.Below="TextBlockPrichinaObrvService" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockDopInfo" Text="Дополнительная информация:"  RelativePanel.Below="TextBoxPrichinaObrvService" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxDopInfo" Width="300" MinHeight="28" RelativePanel.Below="TextBlockDopInfo" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockZakl" Text="Специалистом Исполнителя установлено (далее текст тех.заключения):" TextWrapping="WrapWholeWords" Width="300" MinHeight="28"  RelativePanel.Below="TextBoxDopInfo" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxZakl" Width="300" MinHeight="28" RelativePanel.Below="TextBlockZakl" Margin="20,5,0,0" />
+
+
+
+            <Button x:Name="SaveNastrojki5" Click="SaveNastrojki5_Click" Content="Сохранить техническое заключение в файле .tehdata" RelativePanel.Below="TextBoxZakl" Margin="20,40,0,0" Background="#99BC64" Foreground="White"/>
+            <Button x:Name="SaveZakl" Content="Сохранить техническое заключение (без печати)" RelativePanel.Below="SaveNastrojki5" Margin="20,25,0,0" Click="SaveTZAKL_Click"/>
+            <Button x:Name="SaveZaklPechat" Content="Сохранить техническое заключение (с печатью)" RelativePanel.Below="SaveZakl" Margin="20,15,0,0" Click="SaveTZAKLP5_Click"/>
+
+            <Button x:Name="PrintRekviziti" RelativePanel.Below="SaveZaklPechat" Margin="20,30,0,0" Click="Print_Click" Background="#99BC64" Foreground="White">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE2F6;" FontSize="24"/>
+                    <TextBlock Text="Печать тех.заключения" Margin="10,2,0,0"/>
+                </StackPanel>
+            </Button>
+
+            <TextBlock x:Name="TextBlockStatusFile5" RelativePanel.Below="PrintRekviziti" Margin="20,20,0,20" />
+
+
+            <ContentDialog x:Name="ContentDialogPrePrinting">
+                <StackPanel x:Name="PanelPrePrint" Margin="20,20,0,0">
+                    <StackPanel Width="750" Height="1080" Orientation="Vertical" Margin="20,20,10,20">
+
+                        <StackPanel x:Name="StackPanelHeader" Orientation="Horizontal" Margin="10,0,0,0">
+                            <Image x:Name="HeaderLogo" HorizontalAlignment="Left" MaxHeight="60" Width="150"/>
+                            <TextBlock x:Name="EmptyHeaderBlock" Width="290"/>
+                            <TextBlock x:Name="HeaderSlogan" TextAlignment="Right" Width="300" TextWrapping="WrapWholeWords" Padding="0,0,10,0" FontSize="10"/>
+                        </StackPanel>
+
+                        <StackPanel x:Name="MainPrintingText" Orientation="Vertical" Margin="10,70,0,0">
+
+                            <TextBlock Text="РЕКВИЗИТЫ" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" Margin="10,40,0,0">
+                                <TextBlock Text="Полное наименование: " Width="170"/>
+                                <TextBlock x:Name="MoePolnoeNaimenovaniePrint" Margin="10,0,0,0" FontWeight="SemiBold" Width="550"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                                <TextBlock Text="Сокращенное наименование: " Width="170"/>
+                                <TextBlock x:Name="MoeSokrNaimenovaniePrint" TextWrapping="WrapWholeWords" Margin="10,0,0,0" FontWeight="SemiBold" Width="540"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                                <TextBlock Text="ИНН: " Width="170"/>
+                                <TextBlock x:Name="MoeINNPrint" TextWrapping="WrapWholeWords" Margin="10,0,0,0" FontWeight="SemiBold" Width="540"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                                <TextBlock Text="КПП: " Width="170"/>
+                                <TextBlock x:Name="MoeKPPPrint" TextWrapping="WrapWholeWords" Margin="10,0,0,0" FontWeight="SemiBold" Width="540"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                                <TextBlock Text="ОГРН: " Width="170"/>
+                                <TextBlock x:Name="MoeOGRNPrint" TextWrapping="WrapWholeWords" Margin="10,0,0,0" FontWeight="SemiBold" Width="540"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                                <TextBlock Text="Номер расчетного счета: " Width="170"/>
+                                <TextBlock x:Name="MoeNomerRSPrint" TextWrapping="WrapWholeWords" Margin="10,0,0,0" FontWeight="SemiBold" Width="540"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                                <TextBlock Text="Наименование банка: " Width="170"/>
+                                <TextBlock x:Name="MoeBankNaimenovaniePrint" TextWrapping="WrapWholeWords" Margin="10,0,0,0" FontWeight="SemiBold" Width="540"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                                <TextBlock Text="БИК банка: " Width="170"/>
+                                <TextBlock x:Name="MoeBIKBankaPrint" TextWrapping="WrapWholeWords" Margin="10,0,0,0" FontWeight="SemiBold" Width="540"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                                <TextBlock Text="Корр.счет банка: " Width="170"/>
+                                <TextBlock x:Name="MoeKorrBankaPrint" TextWrapping="WrapWholeWords" Margin="10,0,0,0" FontWeight="SemiBold" Width="540"/>
+                            </StackPanel>
+
+
+
+                            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                                <TextBlock Text="Должность руководителя: " Width="170"/>
+                                <TextBlock x:Name="MoeRukDolzhnostPrint" TextWrapping="WrapWholeWords" Margin="10,0,0,0" FontWeight="SemiBold" Width="540"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                                <TextBlock Text="В лице...: " Width="170"/>
+                                <TextBlock x:Name="MoeVLicePrint" TextWrapping="WrapWholeWords" Margin="10,0,0,0" FontWeight="SemiBold" Width="540"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                                <TextBlock Text="Юридический адрес: " Width="170"/>
+                                <TextBlock x:Name="MoeUrAddressPrint" TextWrapping="WrapWholeWords" Margin="10,0,0,0" FontWeight="SemiBold" Width="540"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                                <TextBlock Text="Фактический адрес: " Width="170"/>
+                                <TextBlock x:Name="MoeFaktAddressPrint"  TextWrapping="WrapWholeWords" Margin="10,0,0,0" FontWeight="SemiBold" Width="540"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                                <TextBlock Text="Телефон: " Width="170"/>
+                                <TextBlock x:Name="MoeTelefonPrint"  TextWrapping="WrapWholeWords" Margin="10,0,0,0" FontWeight="SemiBold" Width="540"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                                <TextBlock Text="Моб.телефон: " Width="170"/>
+                                <TextBlock x:Name="MoeMobTelefonPrint"  TextWrapping="WrapWholeWords" Margin="10,0,0,0" FontWeight="SemiBold" Width="540"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                                <TextBlock Text="Электронная почта: " Width="170"/>
+                                <TextBlock x:Name="MoeEmailPrint"  TextWrapping="WrapWholeWords" Margin="10,0,0,0" FontWeight="SemiBold" Width="540"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                                <TextBlock Text="Сайт: " Width="170"/>
+                                <TextBlock x:Name="MoeSajtPrint"  TextWrapping="WrapWholeWords" Margin="10,0,0,0" FontWeight="SemiBold" Width="540"/>
+                            </StackPanel>
+
+
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </ContentDialog>
+
+            <ContentDialog x:Name="ContentDialogPage1">
+                <StackPanel x:Name="StackPanelPage1" Orientation="Vertical"/>
+            </ContentDialog>
+
+            <ContentDialog x:Name="ContentDialogPage2">
+                <StackPanel x:Name="StackPanelPage2" Orientation="Vertical"/>
+            </ContentDialog>
+
+            <ContentDialog x:Name="ContentDialogPage3">
+                <StackPanel x:Name="StackPanelPage3" Orientation="Vertical"/>
+            </ContentDialog>
+
+            <ContentDialog x:Name="ContentDialogPage4">
+                <StackPanel x:Name="StackPanelPage4" Orientation="Vertical"/>
+            </ContentDialog>
+
+            <ContentDialog x:Name="ContentDialogPage5">
+                <StackPanel x:Name="StackPanelPage5" Orientation="Vertical"/>
+            </ContentDialog>
+
+            <ContentDialog x:Name="ContentDialogPage6">
+                <StackPanel x:Name="StackPanelPage6" Orientation="Vertical"/>
+            </ContentDialog>
+
+            <ContentDialog x:Name="ContentDialogPage7">
+                <StackPanel x:Name="StackPanelPage7" Orientation="Vertical"/>
+            </ContentDialog>
+
+            <ContentDialog x:Name="ContentDialogPage8">
+                <StackPanel x:Name="StackPanelPage8" Orientation="Vertical"/>
+            </ContentDialog>
+
+            <ContentDialog x:Name="ContentDialogPage9">
+                <StackPanel x:Name="StackPanelPage9" Orientation="Vertical"/>
+            </ContentDialog>
+
+            <ContentDialog x:Name="ContentDialogPage10">
+                <StackPanel x:Name="StackPanelPage10" Orientation="Vertical"/>
+            </ContentDialog>
+
+
+
+
+        </RelativePanel>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocuments5.Width" Value="700" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="700" />
+                        <Setter Target="TextBlockCreateDocuments5.TextWrapping" Value="WrapWholeWords" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.TextWrapping" Value="WrapWholeWords" />
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="WideState2">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="520" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocuments5.Width" Value="440" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="440" />
+                        <Setter Target="TextBlockCreateDocuments5.TextWrapping" Value="WrapWholeWords" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.TextWrapping" Value="WrapWholeWords" />
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocuments5.Width" Value="300" />
+                        <Setter Target="TextBlockCreateDocuments5.TextWrapping" Value="WrapWholeWords" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="300" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.TextWrapping" Value="WrapWholeWords" />
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+    </ScrollViewer>
+</Page>

@@ -1,0 +1,611 @@
+﻿<Page
+    x:Class="Мастерконд.Документы.CreateDocuments30"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Мастерконд.Документы"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+
+    <ScrollViewer ScrollViewer.HorizontalScrollMode="Auto" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="White">
+        <RelativePanel x:Name="MainRelativePanel" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <TextBlock x:Name="TextBlockCreateDocuments5" Text="СОЗДАТЬ КОМПЛЕКТ ДОКУМЕНТОВ ДЛЯ СДЕЛКИ"  FontSize="16" FontWeight="SemiBold" Margin="20,10,0,0" Width="700" Foreground="Green"/>
+            <TextBlock x:Name="TextBlockCreateDocumentsOpisanie5" Text="В этом разделе можно создать комплект документов на поставку товаров и оказание услуг по модели СМЕТА (коммерческое предложение) -> СЧЕТ -> ДОГОВОР -> ТОВАРНАЯ НАКЛАДНАЯ -> АКТ. Эта модель подходит для большинства небольших организаций, работающих в сфере строительных, монтажных и сервисно-ремонтных услуг и находящихся на Упрощенной Системе Налогообложения (УСН). Данный раздел служит для быстрого создания пакета документов для не более чем 30 наименований товаров или услуг. Не используйте в полях ввода данных в этом разделе знак &quot;;&quot; - он является разделителем в сохраняемом файле сделки (.docdata)." TextWrapping="WrapWholeWords"  Margin="20,15,0,0" RelativePanel.Below="TextBlockCreateDocuments5" Width="700"/>
+
+            <Button x:Name="LoadNastrojki5" Content="Загрузить файл сделки (.docdata)" RelativePanel.Below="TextBlockCreateDocumentsOpisanie5" Margin="20,20,0,0" Click="LoadNastrojki5_Click" Background="#99BC64" Foreground="White"/>
+            <TextBlock x:Name="TextBlockLoadNastrojkiMessage" RelativePanel.Below="LoadNastrojki5" Margin="20,20,0,0"  FontWeight="SemiBold" Foreground="Red" Width="300"  TextWrapping="WrapWholeWords"/>
+
+            <TextBlock x:Name="TextBlock51" FontWeight="SemiBold" Text="РЕКВИЗИТЫ КОНТРАГЕНТА" RelativePanel.Below="TextBlockLoadNastrojkiMessage" Margin="20,15,0,0"  FontSize="15"/>
+            <Button x:Name="LoadRekv5" Content="Загрузить реквизиты контрагента" RelativePanel.Below="TextBlock51" Margin="20,20,0,0" Click="LoadRekviziti5_Click"/>
+            <TextBlock x:Name="TextBlockFullNameKontr5" Text="Наименование контрагента (полностью):"  RelativePanel.Below="LoadRekv5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxFullNameKontr5"  RelativePanel.Below="TextBlockFullNameKontr5" Margin="20,5,0,0" Width="300" />
+            <TextBlock x:Name="TextBlockSokrNameKontr5" Text="Наименование контрагента (сокращенно):"  RelativePanel.Below="TextBoxFullNameKontr5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxSokrNameKontr5"  RelativePanel.Below="TextBlockSokrNameKontr5" Margin="20,5,0,0" Width="300" />
+            <TextBlock x:Name="TextBlockINN5" RelativePanel.Below="TextBoxSokrNameKontr5" Text="ИНН контрагента:"  Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxINN5" RelativePanel.Below="TextBlockINN5" Margin="20,5,0,0" Width="300" />
+            <TextBlock x:Name="TextBlockKPP5" RelativePanel.Below="TextBoxINN5" Margin="20,15,0,0" Text="КПП контрагента:"  />
+            <TextBox x:Name="TextBoxKPP5" Width="300"  RelativePanel.Below="TextBlockKPP5" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockOGRN5" Text="ОГРН контрагента:"  RelativePanel.Below="TextBoxKPP5" Margin="20,15,0,0"/>
+            <TextBox x:Name="TextBoxOGRN5" RelativePanel.Below="TextBlockOGRN5" Margin="20,5,0,0" Width="300" />
+            <TextBlock x:Name="TextBlockBankRekv5" Text="Банковские реквизиты:"  Margin="20,15,0,0" RelativePanel.Below="TextBoxOGRN5" />
+            <TextBox x:Name="TextBoxBankRekv5" RelativePanel.Below="TextBlockBankRekv5" Width="300"  Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockDolzhnostDirector5" RelativePanel.Below="TextBoxBankRekv5" Text="Должность руководителя:" Margin="20,15,0,0"  />
+            <TextBox x:Name="TextBoxDolzhnostDirector5" RelativePanel.Below="TextBlockDolzhnostDirector5" Margin="20,5,0,0" Width="300" />
+            <TextBlock x:Name="TextBlockVlice5" Width="300"  Height="60" TextWrapping="WrapWholeWords" Text="В лице ...(например, Генерального директора Петрова Ивана Ивановича, действующего на основании Устава):" Margin="20,15,0,0" RelativePanel.Below="TextBoxDolzhnostDirector5"/>
+            <TextBox x:Name="TextBoxVlice5" Width="300"  RelativePanel.Below="TextBlockVlice5" Margin="20,5,0,0"/>
+            <TextBlock x:Name="TextBlockRukSokr5" Text="ФИО руководителя(сокращенно):"  Margin="20,15,0,0" RelativePanel.Below="TextBoxVlice5" />
+            <TextBox x:Name="TextBoxRukSokr5" Width="300"  RelativePanel.Below="TextBlockRukSokr5" Margin="20,5,0,0"/>
+            <TextBlock x:Name="TextBlockUrAddr5"  Margin="20,15,0,0" Text="Юридический адрес:" RelativePanel.Below="TextBoxRukSokr5" />
+            <TextBox x:Name="TextBoxUrAddr5" Margin="20,5,0,0" RelativePanel.Below="TextBlockUrAddr5" Width="300" />
+            <TextBlock x:Name="TextBlockFactAddr5" Margin="20,15,0,0"  RelativePanel.Below="TextBoxUrAddr5" Text="Фактический адрес:" />
+            <TextBox x:Name="TextBoxFactAddr5" Margin="20,5,0,0" RelativePanel.Below="TextBlockFactAddr5" Width="300"  />
+            <TextBlock x:Name="TextBlockPhone5" Margin="20,15,0,0"  RelativePanel.Below="TextBoxFactAddr5" Text="Телефон:"/>
+            <TextBox x:Name="TextBoxPhone5" Width="300"  Margin="20,5,0,0" RelativePanel.Below="TextBlockPhone5"/>
+            <TextBlock x:Name="TextBlockFIOOtvetstvennij5" Margin="20,15,0,0"  RelativePanel.Below="TextBoxPhone5" Text="ФИО ответственного со стороны Заказчика за исполнение Договора:" TextWrapping="WrapWholeWords" Width="300" />
+            <TextBox x:Name="TextBoxFIOOtvetstvennij5" Width="300"  Margin="20,5,0,0" RelativePanel.Below="TextBlockFIOOtvetstvennij5"/>
+            <TextBlock x:Name="TextBlockMobile5"  Text="Мобильный телефон ответственного:" RelativePanel.Below="TextBoxFIOOtvetstvennij5" Margin="20,15,0,0"/>
+            <TextBox x:Name="TextBoxMobile5" Width="300"  RelativePanel.Below="TextBlockMobile5" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockEmail5" Text="Электронная почта:"  RelativePanel.Below="TextBoxMobile5" Margin="20,15,0,0"/>
+            <TextBox x:Name="TextBoxEmail5" Width="300"  Margin="20,5,0,0" RelativePanel.Below="TextBlockEmail5" />
+            <TextBlock x:Name="TextBlockSajt5"  RelativePanel.Below="TextBoxEmail5" Margin="20,15,0,0" Text="Сайт:" />
+            <TextBox x:Name="TextBoxSajt5" Width="300"  RelativePanel.Below="TextBlockSajt5" Margin="20,5,0,0" />
+
+            <Button x:Name="SaveNewRekviziti5" Content="Сохранить/обновить реквизиты контрагента" RelativePanel.Below="TextBoxSajt5" Click="SaveNewRekviziti5_Click" Margin="20,20,0,0"/>
+            <TextBlock x:Name="TextBlockDanniePoDokumentam5" FontWeight="SemiBold" Text="ДАННЫЕ ДЛЯ ДОКУМЕНТОВ"  Margin="20,25,0,0" RelativePanel.Below="SaveNewRekviziti5" />
+            <TextBlock x:Name="TextBlockDataSmeti5" Text="Дата составления сметы (коммерческого предложения):" TextWrapping="WrapWholeWords" Width="300"   Margin="20,15,0,0" RelativePanel.Below="TextBlockDanniePoDokumentam5" />
+            <TextBox x:Name="TextBoxDataSmeti5" Width="300"  RelativePanel.Below="TextBlockDataSmeti5" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockDataDejstvijaSmeti5" Text="Смета действительна до (например, 5 февраля 2016 года):" TextWrapping="WrapWholeWords" Width="300"   Margin="20,15,0,0" RelativePanel.Below="TextBoxDataSmeti5" />
+            <TextBox x:Name="TextBoxDataDejstvijaSmeti5" Width="300"  RelativePanel.Below="TextBlockDataDejstvijaSmeti5" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockDataDogovora5" Text="Дата договора и счета:"  Margin="20,15,0,0" RelativePanel.Below="TextBoxDataDejstvijaSmeti5"/>
+            <TextBox x:Name="TextBoxDataDogovora5" Width="300"  RelativePanel.Below="TextBlockDataDogovora5" Margin="20,5,0,0"/>
+            <TextBlock x:Name="TextBlockNomerDogovora5" Text="Номер договора/счета/акта/накладной:"  Margin="20,15,0,0" RelativePanel.Below="TextBoxDataDogovora5" />
+            <TextBox x:Name="TextBoxNomerDogovora5" RelativePanel.Below="TextBlockNomerDogovora5" Width="300"  Margin="20,5,0,0"/>
+
+            <TextBlock x:Name="TextBlockDataNakladnoj5" Text="Дата накладной:"  RelativePanel.Below="TextBoxNomerDogovora5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxDataNakladnoj5" Width="300"  RelativePanel.Below="TextBlockDataNakladnoj5" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockDataAkta5" Text="Дата акта:"  RelativePanel.Below="TextBoxDataNakladnoj5" Margin="20,15,0,0" />
+
+            <TextBox x:Name="TextBoxDataAkta5" Width="300"  RelativePanel.Below="TextBlockDataAkta5" Margin="20,5,0,0" />
+
+            <TextBlock x:Name="TextBlockSrokiIspolnenija5"  Text="Сроки поставки товаров, оказания услуг, п.2.2 Договора (например, в течение 5(пяти) дней с момента поступления заказа со стороны Заказчика):" TextWrapping="WrapWholeWords" Width="300"  RelativePanel.Below="TextBoxDataAkta5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxSrokiIspolnenija5" Width="300"  RelativePanel.Below="TextBlockSrokiIspolnenija5" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockUslovijaOplati5" Text="Условия по оплате товаров и услуг п.2.3 Договора (например, в течение 3 (трёх) рабочих дней после подписания Сторонами Акта):" RelativePanel.Below="TextBoxSrokiIspolnenija5" Margin="20,15,0,0"  Width="300"  TextWrapping="WrapWholeWords"/>
+            <TextBox x:Name="TextBoxUslovijaOplati5" Width="300"  RelativePanel.Below="TextBlockUslovijaOplati5" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockGarantija5" Text="Гарантийные обязательства (раздел 4 Договора):" TextWrapping="WrapWholeWords" Width="300"   RelativePanel.Below="TextBoxUslovijaOplati5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxGarantija5" Width="300"  RelativePanel.Below="TextBlockGarantija5" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockGorodZaklDogovora5" Text="Место заключения договора (например, г.Москва):" TextWrapping="WrapWholeWords" Width="300"   RelativePanel.Below="TextBoxGarantija5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxGorodZaklDogovora5" Width="300"  RelativePanel.Below="TextBlockGorodZaklDogovora5" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockOsobieUslovijaDogovora5" Text="Особые условия договора (раздел 7):"  RelativePanel.Below="TextBoxGorodZaklDogovora5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxOsobieUslovijaDogovora5" Width="300"  Margin="20,5,0,0" RelativePanel.Below="TextBlockOsobieUslovijaDogovora5" />
+            <TextBlock x:Name="TextBlockSud5"  Text="Название Арбитражного суда для рассмотрения споров (будет включено в п.8 Договора):" TextWrapping="WrapWholeWords" Width="300"  RelativePanel.Below="TextBoxOsobieUslovijaDogovora5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxSud5" Width="300"  RelativePanel.Below="TextBlockSud5" Margin="20,5,0,0" />
+
+            <TextBlock x:Name="TextBlockZero200" RelativePanel.Below="TextBoxSud5" Height="100" />
+
+            <TextBlock x:Name="TextBlockTovari5" Text="ТОВАРЫ/УСЛУГИ" FontWeight="SemiBold"  FontSize="16" Margin="20,20,0,0" RelativePanel.Below="TextBlockZero200" />
+
+            <TextBlock x:Name="TextBlockTovariNaimenivanie5" Text="Наименование товаров или услуг"  RelativePanel.Below="TextBlockTovari5" Margin="20,5,0,0"/>
+            <TextBlock x:Name="TextBlockTovariKolichestvo5" Text="Кол-во" RelativePanel.RightOf="TextBlockTovariNaimenivanie5" RelativePanel.Below="TextBlockTovari5" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockTovariEd5" Text="Ед."  RelativePanel.RightOf="TextBlockTovariKolichestvo5" RelativePanel.Below="TextBlockTovari5" Margin="55,5,0,0" />
+            <TextBlock x:Name="TextBlockTovariCenaed5" Text="Цена за ед."  RelativePanel.RightOf="TextBlockTovariEd5" RelativePanel.Below="TextBlockTovari5" Margin="45,5,0,0" />
+            <TextBlock x:Name="TextBlockTovariStoimost5" Text="Стоимость"  RelativePanel.RightOf="TextBlockTovariCenaed5" RelativePanel.Below="TextBlockTovari5" Margin="70,5,0,0" />
+            <TextBlock x:Name="TextBlockTovariVNakladnaja5" Text="В накладную"  RelativePanel.RightOf="TextBlockTovariStoimost5" RelativePanel.Below="TextBlockTovari5" Margin="20,5,0,0" />
+
+            <TextBox x:Name="TextBoxTovar1Naimenovanie5" RelativePanel.Below="TextBlockTovariNaimenivanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar1Kolvo5" RelativePanel.Below="TextBlockTovariNaimenivanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar1Ed5" RelativePanel.Below="TextBlockTovariNaimenivanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar1CenaEd5" RelativePanel.Below="TextBlockTovariNaimenivanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar1RaschetStoimost5" Content=">" RelativePanel.Below="TextBlockTovariNaimenivanie5" RelativePanel.RightOf="TextBoxTovar1CenaEd5" Margin="20,15,0,0" Click="ButtonTovar1RaschetStoimost5_Click" />
+            <TextBox x:Name="TextBoxTovar1Stoimost5" RelativePanel.Below="TextBlockTovariNaimenivanie5" RelativePanel.RightOf="ButtonTovar1RaschetStoimost5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar1" RelativePanel.Below="TextBlockTovariNaimenivanie5" RelativePanel.RightOf="TextBoxTovar1Stoimost5" Margin="40,15,0,0" />
+            <Button x:Name="AddTovar1Next" RelativePanel.Below="TextBoxTovar1Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar1Next_Click"/>
+            <!--<Button x:Name="RemoveTovar1Next" RelativePanel.Below="TextBoxTovar1Naimenovanie5" RelativePanel.RightOf="AddTovar1Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу"/>-->
+
+            <TextBox x:Name="TextBoxTovar2Naimenovanie5" RelativePanel.Below="TextBoxTovar1Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar2Kolvo5" RelativePanel.Below="TextBoxTovar1Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar2Ed5" RelativePanel.Below="TextBoxTovar1Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar2CenaEd5" RelativePanel.Below="TextBoxTovar1Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar2RaschetStoimosti5" RelativePanel.Below="TextBoxTovar1Naimenovanie5" RelativePanel.RightOf="TextBoxTovar2CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar2RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar2Stoimost5" RelativePanel.Below="TextBoxTovar1Naimenovanie5" RelativePanel.RightOf="ButtonTovar2RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar2" RelativePanel.Below="TextBoxTovar1Naimenovanie5" RelativePanel.RightOf="TextBoxTovar2Stoimost5" Margin="40,15,0,0" />
+            <Button x:Name="AddTovar2Next" RelativePanel.Below="TextBoxTovar2Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar2Next_Click"/>
+            <Button x:Name="RemoveTovar2Next" RelativePanel.Below="TextBoxTovar2Naimenovanie5" RelativePanel.RightOf="AddTovar2Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar2Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar3Naimenovanie5" RelativePanel.Below="TextBoxTovar2Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar3Kolvo5" RelativePanel.Below="TextBoxTovar2Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar3Ed5" RelativePanel.Below="TextBoxTovar2Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar3CenaEd5" RelativePanel.Below="TextBoxTovar2Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar3RaschetStoimosti5" RelativePanel.Below="TextBoxTovar2Naimenovanie5" RelativePanel.RightOf="TextBoxTovar3CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar3RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar3Stoimost5" RelativePanel.Below="TextBoxTovar2Naimenovanie5" RelativePanel.RightOf="ButtonTovar3RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar3" RelativePanel.Below="TextBoxTovar2Naimenovanie5" RelativePanel.RightOf="TextBoxTovar3Stoimost5" Margin="40,15,0,0" />
+            <Button x:Name="AddTovar3Next" RelativePanel.Below="TextBoxTovar3Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar3Next_Click"/>
+            <Button x:Name="RemoveTovar3Next" RelativePanel.Below="TextBoxTovar3Naimenovanie5" RelativePanel.RightOf="AddTovar3Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar3Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar4Naimenovanie5" RelativePanel.Below="TextBoxTovar3Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar4Kolvo5" RelativePanel.Below="TextBoxTovar3Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar4Ed5" RelativePanel.Below="TextBoxTovar3Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar4CenaEd5" RelativePanel.Below="TextBoxTovar3Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar4RaschetStoimosti5" RelativePanel.Below="TextBoxTovar3Naimenovanie5" RelativePanel.RightOf="TextBoxTovar4CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar4RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar4Stoimost5" RelativePanel.Below="TextBoxTovar3Naimenovanie5" RelativePanel.RightOf="ButtonTovar4RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar4" RelativePanel.Below="TextBoxTovar3Naimenovanie5" RelativePanel.RightOf="TextBoxTovar4Stoimost5" Margin="40,15,0,0" />
+            <Button x:Name="AddTovar4Next" RelativePanel.Below="TextBoxTovar4Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar4Next_Click"/>
+            <Button x:Name="RemoveTovar4Next" RelativePanel.Below="TextBoxTovar4Naimenovanie5" RelativePanel.RightOf="AddTovar4Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar4Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar5Naimenovanie5" RelativePanel.Below="TextBoxTovar4Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar5Kolvo5" RelativePanel.Below="TextBoxTovar4Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar5Ed5" RelativePanel.Below="TextBoxTovar4Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar5CenaEd5" RelativePanel.Below="TextBoxTovar4Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar5RaschetStoimosti5" RelativePanel.Below="TextBoxTovar4Naimenovanie5" RelativePanel.RightOf="TextBoxTovar5CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar5RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar5Stoimost5" RelativePanel.Below="TextBoxTovar4Naimenovanie5" RelativePanel.RightOf="ButtonTovar5RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar5" RelativePanel.Below="TextBoxTovar4Naimenovanie5" RelativePanel.RightOf="TextBoxTovar5Stoimost5" Margin="40,15,0,0"  />
+            <Button x:Name="AddTovar5Next" RelativePanel.Below="TextBoxTovar5Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar5Next_Click"/>
+            <Button x:Name="RemoveTovar5Next" RelativePanel.Below="TextBoxTovar5Naimenovanie5" RelativePanel.RightOf="AddTovar5Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar5Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar6Naimenovanie5" RelativePanel.Below="TextBoxTovar5Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar6Kolvo5" RelativePanel.Below="TextBoxTovar5Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar6Ed5" RelativePanel.Below="TextBoxTovar5Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar6CenaEd5" RelativePanel.Below="TextBoxTovar5Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar6RaschetStoimosti5" RelativePanel.Below="TextBoxTovar5Naimenovanie5" RelativePanel.RightOf="TextBoxTovar6CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar6RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar6Stoimost5" RelativePanel.Below="TextBoxTovar5Naimenovanie5" RelativePanel.RightOf="ButtonTovar6RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar6" RelativePanel.Below="TextBoxTovar5Naimenovanie5" RelativePanel.RightOf="TextBoxTovar6Stoimost5" Margin="40,15,0,0"  />
+            <Button x:Name="AddTovar6Next" RelativePanel.Below="TextBoxTovar6Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar6Next_Click"/>
+            <Button x:Name="RemoveTovar6Next" RelativePanel.Below="TextBoxTovar6Naimenovanie5" RelativePanel.RightOf="AddTovar6Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar6Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar7Naimenovanie5" RelativePanel.Below="TextBoxTovar6Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar7Kolvo5" RelativePanel.Below="TextBoxTovar6Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar7Ed5" RelativePanel.Below="TextBoxTovar6Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar7CenaEd5" RelativePanel.Below="TextBoxTovar6Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar7RaschetStoimosti5" RelativePanel.Below="TextBoxTovar6Naimenovanie5" RelativePanel.RightOf="TextBoxTovar7CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar7RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar7Stoimost5" RelativePanel.Below="TextBoxTovar6Naimenovanie5" RelativePanel.RightOf="ButtonTovar7RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar7" RelativePanel.Below="TextBoxTovar6Naimenovanie5" RelativePanel.RightOf="TextBoxTovar7Stoimost5" Margin="40,15,0,0"  />
+            <Button x:Name="AddTovar7Next" RelativePanel.Below="TextBoxTovar7Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar7Next_Click"/>
+            <Button x:Name="RemoveTovar7Next" RelativePanel.Below="TextBoxTovar7Naimenovanie5" RelativePanel.RightOf="AddTovar7Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar7Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar8Naimenovanie5" RelativePanel.Below="TextBoxTovar7Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar8Kolvo5" RelativePanel.Below="TextBoxTovar7Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar8Ed5" RelativePanel.Below="TextBoxTovar7Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar8CenaEd5" RelativePanel.Below="TextBoxTovar7Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar8RaschetStoimosti5" RelativePanel.Below="TextBoxTovar7Naimenovanie5" RelativePanel.RightOf="TextBoxTovar8CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar8RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar8Stoimost5" RelativePanel.Below="TextBoxTovar7Naimenovanie5" RelativePanel.RightOf="ButtonTovar8RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar8" RelativePanel.Below="TextBoxTovar7Naimenovanie5" RelativePanel.RightOf="TextBoxTovar8Stoimost5" Margin="40,15,0,0"  />
+            <Button x:Name="AddTovar8Next" RelativePanel.Below="TextBoxTovar8Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar8Next_Click"/>
+            <Button x:Name="RemoveTovar8Next" RelativePanel.Below="TextBoxTovar8Naimenovanie5" RelativePanel.RightOf="AddTovar8Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar8Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar9Naimenovanie5" RelativePanel.Below="TextBoxTovar8Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar9Kolvo5" RelativePanel.Below="TextBoxTovar8Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar9Ed5" RelativePanel.Below="TextBoxTovar8Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar9CenaEd5" RelativePanel.Below="TextBoxTovar8Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar9RaschetStoimosti5" RelativePanel.Below="TextBoxTovar8Naimenovanie5" RelativePanel.RightOf="TextBoxTovar9CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar9RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar9Stoimost5" RelativePanel.Below="TextBoxTovar8Naimenovanie5" RelativePanel.RightOf="ButtonTovar9RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar9" RelativePanel.Below="TextBoxTovar8Naimenovanie5" RelativePanel.RightOf="TextBoxTovar9Stoimost5" Margin="40,15,0,0"  />
+            <Button x:Name="AddTovar9Next" RelativePanel.Below="TextBoxTovar9Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar9Next_Click"/>
+            <Button x:Name="RemoveTovar9Next" RelativePanel.Below="TextBoxTovar9Naimenovanie5" RelativePanel.RightOf="AddTovar9Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar9Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar10Naimenovanie5" RelativePanel.Below="TextBoxTovar9Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar10Kolvo5" RelativePanel.Below="TextBoxTovar9Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar10Ed5" RelativePanel.Below="TextBoxTovar9Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar10CenaEd5" RelativePanel.Below="TextBoxTovar9Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar10RaschetStoimosti5" RelativePanel.Below="TextBoxTovar9Naimenovanie5" RelativePanel.RightOf="TextBoxTovar10CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar10RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar10Stoimost5" RelativePanel.Below="TextBoxTovar9Naimenovanie5" RelativePanel.RightOf="ButtonTovar10RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar10" RelativePanel.Below="TextBoxTovar9Naimenovanie5" RelativePanel.RightOf="TextBoxTovar10Stoimost5" Margin="40,15,0,0"  />
+            <Button x:Name="AddTovar10Next" RelativePanel.Below="TextBoxTovar10Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar10Next_Click"/>
+            <Button x:Name="RemoveTovar10Next" RelativePanel.Below="TextBoxTovar10Naimenovanie5" RelativePanel.RightOf="AddTovar10Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar10Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar11Naimenovanie5" RelativePanel.Below="TextBoxTovar10Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar11Kolvo5" RelativePanel.Below="TextBoxTovar10Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar11Ed5" RelativePanel.Below="TextBoxTovar10Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar11CenaEd5" RelativePanel.Below="TextBoxTovar10Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar11RaschetStoimosti5" RelativePanel.Below="TextBoxTovar10Naimenovanie5" RelativePanel.RightOf="TextBoxTovar11CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar11RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar11Stoimost5" RelativePanel.Below="TextBoxTovar10Naimenovanie5" RelativePanel.RightOf="ButtonTovar10RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar11" RelativePanel.Below="TextBoxTovar10Naimenovanie5" RelativePanel.RightOf="TextBoxTovar11Stoimost5" Margin="40,15,0,0"  />
+            <Button x:Name="AddTovar11Next" RelativePanel.Below="TextBoxTovar11Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar11Next_Click"/>
+            <Button x:Name="RemoveTovar11Next" RelativePanel.Below="TextBoxTovar11Naimenovanie5" RelativePanel.RightOf="AddTovar11Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar11Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar12Naimenovanie5" RelativePanel.Below="TextBoxTovar11Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar12Kolvo5" RelativePanel.Below="TextBoxTovar11Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar12Ed5" RelativePanel.Below="TextBoxTovar11Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar12CenaEd5" RelativePanel.Below="TextBoxTovar11Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar12RaschetStoimosti5" RelativePanel.Below="TextBoxTovar11Naimenovanie5" RelativePanel.RightOf="TextBoxTovar12CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar12RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar12Stoimost5" RelativePanel.Below="TextBoxTovar11Naimenovanie5" RelativePanel.RightOf="ButtonTovar12RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar12" RelativePanel.Below="TextBoxTovar11Naimenovanie5" RelativePanel.RightOf="TextBoxTovar12Stoimost5" Margin="40,15,0,0"  />
+            <Button x:Name="AddTovar12Next" RelativePanel.Below="TextBoxTovar12Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar12Next_Click"/>
+            <Button x:Name="RemoveTovar12Next" RelativePanel.Below="TextBoxTovar12Naimenovanie5" RelativePanel.RightOf="AddTovar12Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar12Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar13Naimenovanie5" RelativePanel.Below="TextBoxTovar12Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar13Kolvo5" RelativePanel.Below="TextBoxTovar12Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar13Ed5" RelativePanel.Below="TextBoxTovar12Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar13CenaEd5" RelativePanel.Below="TextBoxTovar12Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar13RaschetStoimosti5" RelativePanel.Below="TextBoxTovar12Naimenovanie5" RelativePanel.RightOf="TextBoxTovar13CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar13RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar13Stoimost5" RelativePanel.Below="TextBoxTovar12Naimenovanie5" RelativePanel.RightOf="ButtonTovar13RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar13" RelativePanel.Below="TextBoxTovar12Naimenovanie5" RelativePanel.RightOf="TextBoxTovar13Stoimost5" Margin="40,15,0,0"  />
+            <Button x:Name="AddTovar13Next" RelativePanel.Below="TextBoxTovar13Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar13Next_Click"/>
+            <Button x:Name="RemoveTovar13Next" RelativePanel.Below="TextBoxTovar13Naimenovanie5" RelativePanel.RightOf="AddTovar13Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar13Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar14Naimenovanie5" RelativePanel.Below="TextBoxTovar13Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar14Kolvo5" RelativePanel.Below="TextBoxTovar13Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar14Ed5" RelativePanel.Below="TextBoxTovar13Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar14CenaEd5" RelativePanel.Below="TextBoxTovar13Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar14RaschetStoimosti5" RelativePanel.Below="TextBoxTovar13Naimenovanie5" RelativePanel.RightOf="TextBoxTovar14CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar14RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar14Stoimost5" RelativePanel.Below="TextBoxTovar13Naimenovanie5" RelativePanel.RightOf="ButtonTovar14RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar14" RelativePanel.Below="TextBoxTovar13Naimenovanie5" RelativePanel.RightOf="TextBoxTovar14Stoimost5" Margin="40,15,0,0"  />
+            <Button x:Name="AddTovar14Next" RelativePanel.Below="TextBoxTovar14Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar14Next_Click"/>
+            <Button x:Name="RemoveTovar14Next" RelativePanel.Below="TextBoxTovar14Naimenovanie5" RelativePanel.RightOf="AddTovar14Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar14Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar15Naimenovanie5" RelativePanel.Below="TextBoxTovar14Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar15Kolvo5" RelativePanel.Below="TextBoxTovar14Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar15Ed5" RelativePanel.Below="TextBoxTovar14Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar15CenaEd5" RelativePanel.Below="TextBoxTovar14Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar15RaschetStoimosti5" RelativePanel.Below="TextBoxTovar14Naimenovanie5" RelativePanel.RightOf="TextBoxTovar15CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar15RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar15Stoimost5" RelativePanel.Below="TextBoxTovar14Naimenovanie5" RelativePanel.RightOf="ButtonTovar15RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar15" RelativePanel.Below="TextBoxTovar14Naimenovanie5" RelativePanel.RightOf="TextBoxTovar15Stoimost5" Margin="40,15,0,0"  />
+            <Button x:Name="AddTovar15Next" RelativePanel.Below="TextBoxTovar15Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar15Next_Click"/>
+            <Button x:Name="RemoveTovar15Next" RelativePanel.Below="TextBoxTovar15Naimenovanie5" RelativePanel.RightOf="AddTovar15Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar15Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar16Naimenovanie5" RelativePanel.Below="TextBoxTovar15Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar16Kolvo5" RelativePanel.Below="TextBoxTovar15Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar16Ed5" RelativePanel.Below="TextBoxTovar15Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar16CenaEd5" RelativePanel.Below="TextBoxTovar15Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar16RaschetStoimosti5" RelativePanel.Below="TextBoxTovar15Naimenovanie5" RelativePanel.RightOf="TextBoxTovar16CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar16RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar16Stoimost5" RelativePanel.Below="TextBoxTovar15Naimenovanie5" RelativePanel.RightOf="ButtonTovar16RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar16" RelativePanel.Below="TextBoxTovar15Naimenovanie5" RelativePanel.RightOf="TextBoxTovar16Stoimost5" Margin="40,15,0,0"  />
+            <Button x:Name="AddTovar16Next" RelativePanel.Below="TextBoxTovar16Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar16Next_Click"/>
+            <Button x:Name="RemoveTovar16Next" RelativePanel.Below="TextBoxTovar16Naimenovanie5" RelativePanel.RightOf="AddTovar16Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar16Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar17Naimenovanie5" RelativePanel.Below="TextBoxTovar16Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar17Kolvo5" RelativePanel.Below="TextBoxTovar16Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar17Ed5" RelativePanel.Below="TextBoxTovar16Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar17CenaEd5" RelativePanel.Below="TextBoxTovar16Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar17RaschetStoimosti5" RelativePanel.Below="TextBoxTovar16Naimenovanie5" RelativePanel.RightOf="TextBoxTovar17CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar17RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar17Stoimost5" RelativePanel.Below="TextBoxTovar16Naimenovanie5" RelativePanel.RightOf="ButtonTovar17RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar17" RelativePanel.Below="TextBoxTovar16Naimenovanie5" RelativePanel.RightOf="TextBoxTovar17Stoimost5" Margin="40,15,0,0"  />
+            <Button x:Name="AddTovar17Next" RelativePanel.Below="TextBoxTovar17Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar17Next_Click"/>
+            <Button x:Name="RemoveTovar17Next" RelativePanel.Below="TextBoxTovar17Naimenovanie5" RelativePanel.RightOf="AddTovar17Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar17Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar18Naimenovanie5" RelativePanel.Below="TextBoxTovar17Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar18Kolvo5" RelativePanel.Below="TextBoxTovar17Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar18Ed5" RelativePanel.Below="TextBoxTovar17Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar18CenaEd5" RelativePanel.Below="TextBoxTovar17Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar18RaschetStoimosti5" RelativePanel.Below="TextBoxTovar17Naimenovanie5" RelativePanel.RightOf="TextBoxTovar18CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar18RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar18Stoimost5" RelativePanel.Below="TextBoxTovar17Naimenovanie5" RelativePanel.RightOf="ButtonTovar18RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar18" RelativePanel.Below="TextBoxTovar17Naimenovanie5" RelativePanel.RightOf="TextBoxTovar18Stoimost5" Margin="40,15,0,0"  />
+            <Button x:Name="AddTovar18Next" RelativePanel.Below="TextBoxTovar18Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar18Next_Click"/>
+            <Button x:Name="RemoveTovar18Next" RelativePanel.Below="TextBoxTovar18Naimenovanie5" RelativePanel.RightOf="AddTovar18Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar18Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar19Naimenovanie5" RelativePanel.Below="TextBoxTovar18Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar19Kolvo5" RelativePanel.Below="TextBoxTovar18Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar19Ed5" RelativePanel.Below="TextBoxTovar18Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar19CenaEd5" RelativePanel.Below="TextBoxTovar18Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar19RaschetStoimosti5" RelativePanel.Below="TextBoxTovar18Naimenovanie5" RelativePanel.RightOf="TextBoxTovar19CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar19RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar19Stoimost5" RelativePanel.Below="TextBoxTovar18Naimenovanie5" RelativePanel.RightOf="ButtonTovar19RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar19" RelativePanel.Below="TextBoxTovar18Naimenovanie5" RelativePanel.RightOf="TextBoxTovar19Stoimost5" Margin="40,15,0,0"  />
+            <Button x:Name="AddTovar19Next" RelativePanel.Below="TextBoxTovar19Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar19Next_Click"/>
+            <Button x:Name="RemoveTovar19Next" RelativePanel.Below="TextBoxTovar19Naimenovanie5" RelativePanel.RightOf="AddTovar19Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar19Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar20Naimenovanie5" RelativePanel.Below="TextBoxTovar19Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar20Kolvo5" RelativePanel.Below="TextBoxTovar19Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar20Ed5" RelativePanel.Below="TextBoxTovar19Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar20CenaEd5" RelativePanel.Below="TextBoxTovar19Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar20RaschetStoimosti5" RelativePanel.Below="TextBoxTovar19Naimenovanie5" RelativePanel.RightOf="TextBoxTovar20CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar20RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar20Stoimost5" RelativePanel.Below="TextBoxTovar19Naimenovanie5" RelativePanel.RightOf="ButtonTovar20RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar20" RelativePanel.Below="TextBoxTovar19Naimenovanie5" RelativePanel.RightOf="TextBoxTovar20Stoimost5" Margin="40,15,0,0" />
+            <Button x:Name="AddTovar20Next" RelativePanel.Below="TextBoxTovar20Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar20Next_Click"/>
+            <Button x:Name="RemoveTovar20Next" RelativePanel.Below="TextBoxTovar20Naimenovanie5" RelativePanel.RightOf="AddTovar20Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar20Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar21Naimenovanie5" RelativePanel.Below="TextBoxTovar20Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar21Kolvo5" RelativePanel.Below="TextBoxTovar20Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar21Ed5" RelativePanel.Below="TextBoxTovar20Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar21CenaEd5" RelativePanel.Below="TextBoxTovar20Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar21RaschetStoimosti5" RelativePanel.Below="TextBoxTovar20Naimenovanie5" RelativePanel.RightOf="TextBoxTovar21CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar21RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar21Stoimost5" RelativePanel.Below="TextBoxTovar20Naimenovanie5" RelativePanel.RightOf="ButtonTovar21RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar21" RelativePanel.Below="TextBoxTovar20Naimenovanie5" RelativePanel.RightOf="TextBoxTovar21Stoimost5" Margin="40,15,0,0" />
+            <Button x:Name="AddTovar21Next" RelativePanel.Below="TextBoxTovar21Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar21Next_Click"/>
+            <Button x:Name="RemoveTovar21Next" RelativePanel.Below="TextBoxTovar21Naimenovanie5" RelativePanel.RightOf="AddTovar21Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar21Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar22Naimenovanie5" RelativePanel.Below="TextBoxTovar21Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar22Kolvo5" RelativePanel.Below="TextBoxTovar21Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar22Ed5" RelativePanel.Below="TextBoxTovar21Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar22CenaEd5" RelativePanel.Below="TextBoxTovar21Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar22RaschetStoimosti5" RelativePanel.Below="TextBoxTovar21Naimenovanie5" RelativePanel.RightOf="TextBoxTovar22CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar22RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar22Stoimost5" RelativePanel.Below="TextBoxTovar21Naimenovanie5" RelativePanel.RightOf="ButtonTovar22RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar22" RelativePanel.Below="TextBoxTovar21Naimenovanie5" RelativePanel.RightOf="TextBoxTovar22Stoimost5" Margin="40,15,0,0" />
+            <Button x:Name="AddTovar22Next" RelativePanel.Below="TextBoxTovar22Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar22Next_Click"/>
+            <Button x:Name="RemoveTovar22Next" RelativePanel.Below="TextBoxTovar22Naimenovanie5" RelativePanel.RightOf="AddTovar22Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar22Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar23Naimenovanie5" RelativePanel.Below="TextBoxTovar22Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar23Kolvo5" RelativePanel.Below="TextBoxTovar22Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar23Ed5" RelativePanel.Below="TextBoxTovar22Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar23CenaEd5" RelativePanel.Below="TextBoxTovar22Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar23RaschetStoimosti5" RelativePanel.Below="TextBoxTovar22Naimenovanie5" RelativePanel.RightOf="TextBoxTovar23CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar23RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar23Stoimost5" RelativePanel.Below="TextBoxTovar22Naimenovanie5" RelativePanel.RightOf="ButtonTovar23RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar23" RelativePanel.Below="TextBoxTovar22Naimenovanie5" RelativePanel.RightOf="TextBoxTovar23Stoimost5" Margin="40,15,0,0" />
+            <Button x:Name="AddTovar23Next" RelativePanel.Below="TextBoxTovar23Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar23Next_Click"/>
+            <Button x:Name="RemoveTovar23Next" RelativePanel.Below="TextBoxTovar23Naimenovanie5" RelativePanel.RightOf="AddTovar23Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar23Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar24Naimenovanie5" RelativePanel.Below="TextBoxTovar23Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar24Kolvo5" RelativePanel.Below="TextBoxTovar23Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar24Ed5" RelativePanel.Below="TextBoxTovar23Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar24CenaEd5" RelativePanel.Below="TextBoxTovar23Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar24RaschetStoimosti5" RelativePanel.Below="TextBoxTovar23Naimenovanie5" RelativePanel.RightOf="TextBoxTovar24CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar24RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar24Stoimost5" RelativePanel.Below="TextBoxTovar23Naimenovanie5" RelativePanel.RightOf="ButtonTovar24RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar24" RelativePanel.Below="TextBoxTovar23Naimenovanie5" RelativePanel.RightOf="TextBoxTovar24Stoimost5" Margin="40,15,0,0" />
+            <Button x:Name="AddTovar24Next" RelativePanel.Below="TextBoxTovar24Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar24Next_Click"/>
+            <Button x:Name="RemoveTovar24Next" RelativePanel.Below="TextBoxTovar24Naimenovanie5" RelativePanel.RightOf="AddTovar24Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar24Next_Click"/>
+
+
+
+            <TextBox x:Name="TextBoxTovar25Naimenovanie5" RelativePanel.Below="TextBoxTovar24Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar25Kolvo5" RelativePanel.Below="TextBoxTovar24Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar25Ed5" RelativePanel.Below="TextBoxTovar24Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar25CenaEd5" RelativePanel.Below="TextBoxTovar24Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar25RaschetStoimosti5" RelativePanel.Below="TextBoxTovar24Naimenovanie5" RelativePanel.RightOf="TextBoxTovar25CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar25RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar25Stoimost5" RelativePanel.Below="TextBoxTovar24Naimenovanie5" RelativePanel.RightOf="ButtonTovar25RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar25" RelativePanel.Below="TextBoxTovar24Naimenovanie5" RelativePanel.RightOf="TextBoxTovar25Stoimost5" Margin="40,15,0,0" />
+            <Button x:Name="AddTovar25Next" RelativePanel.Below="TextBoxTovar25Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar25Next_Click"/>
+            <Button x:Name="RemoveTovar25Next" RelativePanel.Below="TextBoxTovar25Naimenovanie5" RelativePanel.RightOf="AddTovar25Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar25Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar26Naimenovanie5" RelativePanel.Below="TextBoxTovar25Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar26Kolvo5" RelativePanel.Below="TextBoxTovar25Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar26Ed5" RelativePanel.Below="TextBoxTovar25Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar26CenaEd5" RelativePanel.Below="TextBoxTovar25Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar26RaschetStoimosti5" RelativePanel.Below="TextBoxTovar25Naimenovanie5" RelativePanel.RightOf="TextBoxTovar26CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar26RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar26Stoimost5" RelativePanel.Below="TextBoxTovar25Naimenovanie5" RelativePanel.RightOf="ButtonTovar26RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar26" RelativePanel.Below="TextBoxTovar25Naimenovanie5" RelativePanel.RightOf="TextBoxTovar26Stoimost5" Margin="40,15,0,0" />
+            <Button x:Name="AddTovar26Next" RelativePanel.Below="TextBoxTovar26Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar26Next_Click"/>
+            <Button x:Name="RemoveTovar26Next" RelativePanel.Below="TextBoxTovar26Naimenovanie5" RelativePanel.RightOf="AddTovar26Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar26Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar27Naimenovanie5" RelativePanel.Below="TextBoxTovar26Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar27Kolvo5" RelativePanel.Below="TextBoxTovar26Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar27Ed5" RelativePanel.Below="TextBoxTovar26Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar27CenaEd5" RelativePanel.Below="TextBoxTovar26Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar27RaschetStoimosti5" RelativePanel.Below="TextBoxTovar26Naimenovanie5" RelativePanel.RightOf="TextBoxTovar27CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar27RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar27Stoimost5" RelativePanel.Below="TextBoxTovar26Naimenovanie5" RelativePanel.RightOf="ButtonTovar27RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar27" RelativePanel.Below="TextBoxTovar26Naimenovanie5" RelativePanel.RightOf="TextBoxTovar27Stoimost5" Margin="40,15,0,0" />
+            <Button x:Name="AddTovar27Next" RelativePanel.Below="TextBoxTovar27Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar27Next_Click"/>
+            <Button x:Name="RemoveTovar27Next" RelativePanel.Below="TextBoxTovar27Naimenovanie5" RelativePanel.RightOf="AddTovar27Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar27Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar28Naimenovanie5" RelativePanel.Below="TextBoxTovar27Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar28Kolvo5" RelativePanel.Below="TextBoxTovar27Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar28Ed5" RelativePanel.Below="TextBoxTovar27Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar28CenaEd5" RelativePanel.Below="TextBoxTovar27Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar28RaschetStoimosti5" RelativePanel.Below="TextBoxTovar27Naimenovanie5" RelativePanel.RightOf="TextBoxTovar28CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar28RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar28Stoimost5" RelativePanel.Below="TextBoxTovar27Naimenovanie5" RelativePanel.RightOf="ButtonTovar28RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar28" RelativePanel.Below="TextBoxTovar27Naimenovanie5" RelativePanel.RightOf="TextBoxTovar28Stoimost5" Margin="40,15,0,0" />
+            <Button x:Name="AddTovar28Next" RelativePanel.Below="TextBoxTovar28Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar28Next_Click"/>
+            <Button x:Name="RemoveTovar28Next" RelativePanel.Below="TextBoxTovar28Naimenovanie5" RelativePanel.RightOf="AddTovar28Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar28Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar29Naimenovanie5" RelativePanel.Below="TextBoxTovar28Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar29Kolvo5" RelativePanel.Below="TextBoxTovar28Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar29Ed5" RelativePanel.Below="TextBoxTovar28Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar29CenaEd5" RelativePanel.Below="TextBoxTovar28Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar29RaschetStoimosti5" RelativePanel.Below="TextBoxTovar28Naimenovanie5" RelativePanel.RightOf="TextBoxTovar29CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar29RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar29Stoimost5" RelativePanel.Below="TextBoxTovar28Naimenovanie5" RelativePanel.RightOf="ButtonTovar29RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar29" RelativePanel.Below="TextBoxTovar28Naimenovanie5" RelativePanel.RightOf="TextBoxTovar29Stoimost5" Margin="40,15,0,0" />
+            <Button x:Name="AddTovar29Next" RelativePanel.Below="TextBoxTovar29Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar29Next_Click"/>
+            <Button x:Name="RemoveTovar29Next" RelativePanel.Below="TextBoxTovar29Naimenovanie5" RelativePanel.RightOf="AddTovar29Next" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar29Next_Click"/>
+
+
+            <TextBox x:Name="TextBoxTovar30Naimenovanie5" RelativePanel.Below="TextBoxTovar29Naimenovanie5" Width="230" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar30Kolvo5" RelativePanel.Below="TextBoxTovar29Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Naimenovanie5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar30Ed5" RelativePanel.Below="TextBoxTovar29Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Kolvo5" Margin="20,15,0,0" />
+            <TextBox x:Name="TextBoxTovar30CenaEd5" RelativePanel.Below="TextBoxTovar29Naimenovanie5" RelativePanel.RightOf="TextBoxTovar1Ed5" Margin="20,15,0,0" Width="80" />
+            <Button x:Name="ButtonTovar30RaschetStoimosti5" RelativePanel.Below="TextBoxTovar29Naimenovanie5" RelativePanel.RightOf="TextBoxTovar30CenaEd5" Margin="20,15,0,0" Content=">" Click="ButtonTovar30RaschetStoimosti5_Click" />
+            <TextBox x:Name="TextBoxTovar30Stoimost5" RelativePanel.Below="TextBoxTovar29Naimenovanie5" RelativePanel.RightOf="ButtonTovar30RaschetStoimosti5" Margin="20,15,0,20" Width="80" />
+            <CheckBox x:Name="CheckBoxTovar30" RelativePanel.Below="TextBoxTovar29Naimenovanie5" RelativePanel.RightOf="TextBoxTovar30Stoimost5" Margin="40,15,0,0" />
+            <!--<Button x:Name="AddTovar30Next" RelativePanel.Below="TextBoxTovar30Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Добавить товар/услугу" Click="AddTovar30Next_Click"/>-->
+            <Button x:Name="RemoveTovar30Next" RelativePanel.Below="TextBoxTovar30Naimenovanie5" Margin="20,5,0,0" Background="#FF99BC64" Foreground="White" Content="Убрать товар/услугу" Click="RemoveTovar30Next_Click"/>
+
+
+            <Button x:Name="ButtonItogoSummaRaschet5" Content="Посчитать итого" RelativePanel.Below="TextBoxTovar30Stoimost5" Margin="600,40,0,0" Click="ButtonItogoSummaRaschet5_Click" />
+            <Button x:Name="ButtonItogoSummaPoNakladnoj5" Content="Итого по накладной" RelativePanel.Below="ButtonItogoSummaRaschet5" Margin="600,10,0,0" Click="ButtonItogoSummaPoNakladnoj5_Click" />
+            <Button x:Name="ButtonItogoSummaPoAktu5" Content="Итого по акту" RelativePanel.Below="ButtonItogoSummaPoNakladnoj5" Margin="600,10,0,0" Click="ButtonItogoSummaPoAktu5_Click"/>
+
+
+            <TextBlock x:Name="TextBlockItogo5" Text="Итого стоимость цифрами (например, 25):" RelativePanel.Below="ButtonItogoSummaPoAktu5" Margin="20,35,0,0"  TextWrapping="WrapWholeWords" Width="300" />
+            <TextBox x:Name="TextBoxItogo5" Width="300"  RelativePanel.Below="TextBlockItogo5" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockItogoPropis5" Text="Итого стоимость прописью (например, двадцать пять рублей 00 копеек):" RelativePanel.Below="TextBoxItogo5" Margin="20,15,0,0"  TextWrapping="WrapWholeWords" Width="300" />
+            <TextBox x:Name="TextBoxItogoPropis5" Width="300"  RelativePanel.Below="TextBlockItogoPropis5" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockItogoNomerovPoNakladnoj5" Text="Итого позиций по накладной (например, 5(пять)):" Width="500" TextWrapping="WrapWholeWords" RelativePanel.Below="ButtonItogoSummaPoAktu5" Margin="20,35,0,0" RelativePanel.RightOf="TextBoxItogo5"  />
+            <TextBox x:Name="TextBoxItogoNomerovPoNakladnoj5" Width="500" RelativePanel.Below="TextBlockItogoNomerovPoNakladnoj5" RelativePanel.RightOf="TextBoxItogo5" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockItogoSummaPoNakladnoj5" Text="Сумма товаров по накладной (например, 1750 (одна тысяча семьсот пятьдесят))):" Width="500" TextWrapping="WrapWholeWords" RelativePanel.Below="TextBoxItogoNomerovPoNakladnoj5" RelativePanel.RightOf="TextBoxItogo5" Margin="20,15,0,0"  />
+            <TextBox x:Name="TextBoxItogoSummaPoNakladnoj5" Width="500" RelativePanel.Below="TextBlockItogoSummaPoNakladnoj5" RelativePanel.RightOf="TextBoxItogo5" Margin="20,5,0,0" />
+            <TextBlock x:Name="TextBlockItogoSummaPoAktu5" Text="Сумма оказанных услуг по акту (например, 2500 (две тысячи пятьсот))):" Width="500" TextWrapping="WrapWholeWords" RelativePanel.Below="TextBoxItogoSummaPoNakladnoj5" RelativePanel.RightOf="TextBoxItogo5" Margin="20,15,0,0"  />
+            <TextBox x:Name="TextBoxItogoSummaPoAktu5" Width="500" RelativePanel.Below="TextBlockItogoSummaPoAktu5" RelativePanel.RightOf="TextBoxItogo5" Margin="20,5,0,0" />
+
+
+            <TextBlock x:Name="TextBlockStatusSdelki" Text="Статус сделки:" FontWeight="SemiBold" RelativePanel.Below="TextBoxItogoSummaPoAktu5" Margin="20,20,0,0" />
+            <ComboBox x:Name="ComboBoxModule1" RelativePanel.Below="TextBlockStatusSdelki" Margin="20,5,0,0" Width="300">
+                <ComboBoxItem x:Name="Combo011" Content="Выберите статус" />
+                <ComboBoxItem x:Name="Combo11" Content="Сделано предложение" />
+                <ComboBoxItem x:Name="Combo12" Content="Заключен договор, выставлен счет" />
+                <ComboBoxItem x:Name="Combo13" Content="В работе" />
+                <ComboBoxItem x:Name="Combo14" Content="Исполнена, ожидает подписания актов/накладных" />
+                <ComboBoxItem x:Name="Combo15" Content="Ожидание оплаты" />
+                <ComboBoxItem x:Name="Combo16" Content="Завершена" />
+                <ComboBoxItem x:Name="Combo17" Content="Договор расторгнут" />
+            </ComboBox>
+
+            <Rectangle x:Name="Razdelitel000" RelativePanel.Below="ComboBoxModule1" Width="950" Height="0.75" Fill="LightGray" Margin="10,30,0,0"/>
+            <TextBlock x:Name="TextBlockNalogData" Text="ДАННЫЕ ДЛЯ УЧЕТА В РАЗДЕЛЕ &quot;БАЗА СДЕЛОК&quot;" RelativePanel.Below="Razdelitel000" Margin="20,20,0,0" FontWeight="SemiBold"/>
+            <TextBlock x:Name="TextBlockNalogKvartal" Text="Квартал завершения сделки:" RelativePanel.Below="TextBlockNalogData" Margin="20,20,0,0"/>
+            <ComboBox x:Name="ComboBoxKvartal" Margin="20,20,0,0"  Width="300" RelativePanel.Below="TextBlockNalogKvartal">
+                <ComboBoxItem x:Name="ComboKvartalSearch0" Content="Выберите квартал" IsSelected="True"/>
+                <ComboBoxItem x:Name="ComboKvartalSearch1" Content="Первый квартал (янв-мар)" />
+                <ComboBoxItem x:Name="ComboKvartalSearch2" Content="Второй квартал (апр-июн)"  />
+                <ComboBoxItem x:Name="ComboKvartalSearch3" Content="Третий квартал (июл-сен)" />
+                <ComboBoxItem x:Name="ComboKvartalSearch4" Content="Четвертый квартал (окт-дек)" />
+            </ComboBox>
+            <TextBlock x:Name="TextBlockNalogYear" Text="Год завершения сделки:" RelativePanel.Below="ComboBoxKvartal" Margin="20,20,0,0"/>
+            <TextBox x:Name="TextBoxNalogYear" Width="300" Margin="20,20,0,0" RelativePanel.Below="TextBlockNalogYear"/>
+            <Rectangle x:Name="Razdelitel001" RelativePanel.Below="TextBoxNalogYear" Width="950" Height="0.75" Fill="LightGray" Margin="10,30,0,0"/>
+
+
+            <Button Width="300"  x:Name="SaveSmeta5" Content="Сохранить смету (без печати)" RelativePanel.Below="Razdelitel001" Margin="20,40,0,0" Click="SaveSmeta5_Click" Background="Thistle"/>
+            <Button Width="300"  x:Name="SaveSmetaP5" Content="Сохранить смету (с печатью)" RelativePanel.Below="SaveSmeta5" Margin="20,15,0,0" Click="SaveSmetaP5_Click" Background="Thistle" />
+            <Button Width="300"  x:Name="SaveSchet5" Click="SaveSchet5_Click" Content="Сохранить счет (без печати)" RelativePanel.Below="SaveSmetaP5" Margin="20,15,0,0"/>
+            <Button Width="300"  x:Name="SaveSchetP5" Content="Сохранить счет (с печатью)" RelativePanel.Below="SaveSchet5" Margin="20,15,0,0" Click="SaveSchetP5_Click" />
+
+            <Button Width="300"  x:Name="SaveDogovor5" Click="SaveDogovor5_Click" Content="Сохранить договор (без печати)" Background="#64008000" RelativePanel.Below="SaveSmetaP5" RelativePanel.RightOf="SaveSchet5" Margin="20,15,0,0" />
+            <Button Width="300"  x:Name="SaveAkt5" Click="SaveAkt5_Click" Content="Сохранить акт (без печати)" RelativePanel.Below="SaveSmetaP5" RelativePanel.RightOf="SaveDogovor5" Margin="20,15,0,0" />
+            <Button Width="300"  x:Name="SaveNakladnaja5" Content="Сохранить накладную (без печати)" RelativePanel.Below="SaveSchetP5" Margin="20,15,0,0" Background="#66A52A2A" Click="SaveNakladnaja5_Click"/>
+
+            <Button Width="300"  x:Name="SaveDogovorP5" Content="Сохранить договор (с печатью)" Background="#64008000" RelativePanel.Below="SaveSchet5" RelativePanel.RightOf="SaveSchetP5" Margin="20,15,0,0" Click="SaveDogovorP5_Click" />
+            <Button Width="300"  x:Name="SaveAktP5" Content="Сохранить акт (с печатью)" RelativePanel.Below="SaveSchet5" RelativePanel.RightOf="SaveDogovorP5" Margin="20,15,0,0" Click="SaveAktP5_Click" />
+            <Button Width="300"  x:Name="SaveNakladnajaP5" Content="Сохранить накладную (с печатью)" RelativePanel.Below="SaveNakladnaja5" Margin="20,15,0,0" Background="#66A52A2A" Click="SaveNakladnajaP5_Click"/>
+
+            <Button x:Name="SaveNastrojki5" Click="SaveNastrojki5_Click" Content="Сохранить сделку в файле .docdata" RelativePanel.Below="SaveNakladnajaP5" Margin="20,40,0,0" Background="#99BC64" Foreground="White"/>
+
+            <ProgressRing x:Name="ProgressRing1" RelativePanel.Below="SaveNastrojki5" Margin="20,20,0,20" IsActive="False"/>
+            <TextBlock x:Name="TextBlockStatusFile5" RelativePanel.Below="SaveNastrojki5" RelativePanel.RightOf="ProgressRing1" Margin="10,20,0,20" />
+
+
+            <TextBlock x:Name="TextBlock511" FontWeight="SemiBold" Text="МОИ РЕКВИЗИТЫ" RelativePanel.Below="TextBlockLoadNastrojkiMessage" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <Button x:Name="LoadMoiRekv5" RelativePanel.Below="TextBlock511" RelativePanel.RightOf="TextBlock51" Content="Загрузить мои реквизиты" Margin="220,20,40,0" Click="LoadMoiRekv5_Click" />
+            <TextBlock x:Name="TextBlockMoeNaimenovaniePolnoe5" RelativePanel.Below="LoadMoiRekv5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0"  Text="Мое наименование(полностью):"/>
+            <TextBox x:Name="TextBoxMoeNaimenovaniePolnoe5" RelativePanel.Below="TextBlockMoeNaimenovaniePolnoe5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" Width="300" />
+            <TextBlock x:Name="TextBlockMoeNaimenovanieSokr5" RelativePanel.Below="TextBoxMoeNaimenovaniePolnoe5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" Text="Мое наименование (сокращенно):"  />
+            <TextBox x:Name="TextBoxMoeNaimenovanieSokr5" RelativePanel.Below="TextBlockMoeNaimenovanieSokr5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" Width="300"  />
+            <TextBlock x:Name="TextBlockMojINN5" RelativePanel.Below="TextBoxMoeNaimenovanieSokr5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" Text="Мой ИНН:"  />
+            <TextBox x:Name="TextBoxMojINN5" RelativePanel.Below="TextBlockMojINN5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" Width="300"  />
+            <TextBlock x:Name="TextBlockMojKPP5" RelativePanel.Below="TextBoxMojINN5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" Text="Мой КПП:"  />
+            <TextBox x:Name="TextBoxMojKPP5" RelativePanel.Below="TextBlockMojKPP5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" Width="300"  />
+            <TextBlock x:Name="TextBlockMojOGRN5" Text="Мой ОГРН:" RelativePanel.Below="TextBoxMojKPP5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0"  />
+            <TextBox x:Name="TextBoxMojOGRN5" Width="300"  RelativePanel.Below="TextBlockMojOGRN5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+
+            <TextBlock x:Name="TextBlockMoiBankRekv5"  RelativePanel.Below="TextBoxMojOGRN5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" Text="Наименование моего банка:" />
+            <TextBox x:Name="TextBoxMoiBankName5" Width="300"  RelativePanel.Below="TextBlockMoiBankRekv5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMoiBankBIK5"  Text="БИК моего банка:" RelativePanel.Below="TextBoxMoiBankName5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0"/>
+            <TextBox x:Name="TextBoxMoiBankBIK5" Width="300"  RelativePanel.Below="TextBlockMoiBankBIK5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMoiBankKorr5"  Text="Корр.счет моего банка:" RelativePanel.Below="TextBoxMoiBankBIK5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMoiBankKorr5" Width="300"  RelativePanel.Below="TextBlockMoiBankKorr5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMoiRaschetnijSchet5" Text="Номер моего расчетного счета:"  RelativePanel.Below="TextBoxMoiBankKorr5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMoiRaschetnijSchet5" Width="300"  RelativePanel.Below="TextBlockMoiRaschetnijSchet5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+
+            <TextBlock x:Name="TextBlockMojaRukDolzhnost5"  RelativePanel.Below="TextBoxMoiRaschetnijSchet5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" Text="Моя должность руководителя:" />
+            <TextBox x:Name="TextBoxMojaRukDolzhnost5" Width="300"  RelativePanel.Below="TextBlockMojaRukDolzhnost5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMojVlice5"  TextWrapping="WrapWholeWords" Text="В лице...(например, Генерального директора Петрова Ивана Ивановича, действующего на основании Устава):" Height="60" Margin="220,15,0,0" RelativePanel.Below="TextBoxMojaRukDolzhnost5" RelativePanel.RightOf="TextBlock51" Width="300" />
+            <TextBox x:Name="TextBoxMojVlice5" Width="300"  RelativePanel.RightOf="TextBlock51" RelativePanel.Below="TextBlockMojVlice5" Margin="220,5,0,0"/>
+            <TextBlock x:Name="TextBlockMojFIORuk5" Text="Моя ФИО руководителя (сокращенно):"  RelativePanel.Below="TextBoxMojVlice5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMojFIORuk5" Width="300"  RelativePanel.Below="TextBlockMojFIORuk5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMojURAddr5"  Text="Мой юридический адрес:" RelativePanel.Below="TextBoxMojFIORuk5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0"/>
+            <TextBox x:Name="TextBoxMojUrAddr5" Width="300"  RelativePanel.Below="TextBlockMojURAddr5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMojFactAddr5"  Text="Мой фактический адрес:" RelativePanel.Below="TextBoxMojUrAddr5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMojFackAddr5" Width="300"  RelativePanel.Below="TextBlockMojFactAddr5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMojPhone5" Text="Мой телефон:"  RelativePanel.Below="TextBoxMojFackAddr5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMojPhone5" Width="300"  RelativePanel.Below="TextBlockMojPhone5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMojMobile5" Text="Мой мобильный телефон:"  RelativePanel.Below="TextBoxMojPhone5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMojMobile5" Width="300"  RelativePanel.Below="TextBlockMojMobile5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMojEmail5" Text="Моя электронная почта:"  RelativePanel.Below="TextBoxMojMobile5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMojEmail5" Width="300"  RelativePanel.Below="TextBlockMojEmail5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMojSait5" Text="Мой сайт:"  RelativePanel.Below="TextBoxMojEmail5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMojSait5" Width="300"  RelativePanel.Below="TextBlockMojSait5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+
+            <CheckBox x:Name="CHeckBoxSchapka5" Content="Использовать в документах шапку с логотипом и слоганом" RelativePanel.Below="TextBoxMojSait5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+
+            <TextBlock x:Name="TextBlockMojLogo5"  Text="Мой логотип в шапку документов (jpeg в Base64, рекомендуемый размер 200x30):" TextWrapping="WrapWholeWords" Width="300"  RelativePanel.Below="CHeckBoxSchapka5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMojLogo5" Width="300"  RelativePanel.Below="TextBlockMojLogo5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMojSlogan5"  Text="Мой слоган в шапку документов:" RelativePanel.Below="TextBoxMojLogo5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMojSlogan5" Width="300"  RelativePanel.Below="TextBlockMojSlogan5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockMoiPechatPodpis5" Text="Моя печать и подпись (скан, размер 200x200, jpeg качество 70% Base64):" TextWrapping="WrapWholeWords" Width="300"   RelativePanel.RightOf="TextBlock51" RelativePanel.Below="TextBoxMojSlogan5" Margin="220,15,0,0" />
+            <TextBox x:Name="TextBoxMoiPechatPodpis5" Width="300"  RelativePanel.RightOf="TextBlock51" RelativePanel.Below="TextBlockMoiPechatPodpis5" Margin="220,5,0,0" />
+            <TextBlock x:Name="TextBlockUslugiPo5" Text="Компания оказывает услуги по...:(например, монтажу кондиционеров)" TextWrapping="WrapWholeWords" Width="300"  RelativePanel.Below="TextBoxMoiPechatPodpis5" RelativePanel.RightOf="TextBlock51" Margin="220,15,0,0"  />
+            <TextBox x:Name="TextBoxUslugiPo5" Width="300"  RelativePanel.Below="TextBlockUslugiPo5" RelativePanel.RightOf="TextBlock51" Margin="220,5,0,0" />
+            <Button x:Name="SaveMoiNewRekv" Content="Сохранить/обновить мои реквизиты" RelativePanel.Below="TextBoxUslugiPo5" RelativePanel.RightOf="TextBlock51" Margin="220,20,0,0" Click="SaveMoiNewRekv_Click"/>
+            <TextBlock x:Name="FileTextBlock" Visibility="Collapsed" Text=""/>
+
+            <Popup x:Name="PopupFileLoad" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalOffset="175" VerticalOffset="50">
+                <StackPanel x:Name="PopupFileLoadPanel" Orientation="Vertical" Background="White" BorderThickness="1" BorderBrush="Green" Height="80" Width="450">
+                    <StackPanel Orientation="Horizontal" Margin="20,20,0,0">
+                        <ProgressRing HorizontalAlignment="Left" IsActive="True"/>
+                        <TextBlock x:Name="PopupFileLoadTextBlock" Text="Производится загрузка данных файла" HorizontalAlignment="Left" Width="300" TextWrapping="WrapWholeWords" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+            </Popup>
+
+            
+
+
+        </RelativePanel>
+        
+        
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState1">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocuments5.Width" Value="700" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="700" />
+                        <Setter Target="TextBlockCreateDocuments5.TextWrapping" Value="WrapWholeWords" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.TextWrapping" Value="WrapWholeWords" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="WideState2">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="520" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocuments5.Width" Value="440" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="440" />
+                        <Setter Target="TextBlockCreateDocuments5.TextWrapping" Value="WrapWholeWords" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.TextWrapping" Value="WrapWholeWords" />
+
+                        <Setter Target="PopupFileLoad.HorizontalOffset" Value="20"/>
+                        
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocuments5.Width" Value="300" />
+                        <Setter Target="TextBlockCreateDocuments5.TextWrapping" Value="WrapWholeWords" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="300" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.TextWrapping" Value="WrapWholeWords" />
+                        
+                        <Setter Target="PopupFileLoad.HorizontalOffset" Value="20"/>
+                        <Setter Target="PopupFileLoadPanel.Width" Value="280"/>
+                        <Setter Target="PopupFileLoadTextBlock.Width" Value="260"/>
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+    </ScrollViewer>
+
+    
+    
+    
+</Page>

@@ -1,0 +1,335 @@
+﻿<Page
+    x:Class="Мастерконд.Документы.MINISKLAD"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Мастерконд.Документы"
+    xmlns:data="using:DataAppModelsMiniSklad"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+
+    <ScrollViewer ScrollViewer.HorizontalScrollMode="Auto" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="White">
+
+        <RelativePanel ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <TextBlock x:Name="TextBlockCreateDocuments5" Text="МИНИ-СКЛАД"  FontSize="16" FontWeight="SemiBold" Margin="20,10,0,0" Width="700" Foreground="Green"/>
+            <TextBlock x:Name="TextBlockCreateDocumentsOpisanie5" Text="В этом разделе можно создать базу данных товаров на небольшом складе. Для изменения или удаления товара кликнете по нему. Для закрытия окна редактирования товара нажмите кнопку &quot;Сохранить&quot;. Для удаления товара в окне редактирования нажмите кнопку &quot;Удалить&quot;. Чтобы отобразить или скрыть столбцы, нажмите на кнопку &quot;Настройки отображения&quot; и выберите необходимые столбцы из списка." TextWrapping="WrapWholeWords"  Margin="20,15,0,0" RelativePanel.Below="TextBlockCreateDocuments5" Width="700"/>
+
+            <Button x:Name="ButtonSearchOpen" Content="+" Background="#99BC64" Foreground="White" RelativePanel.Below="TextBlockCreateDocumentsOpisanie5" Margin="20,30,0,0" Click="ButtonSearchOpen_Click" />
+            <TextBlock x:Name="TextBlockSearchOpen" Text="ПОИСК ПО МИНИ-СКЛАДУ" RelativePanel.Below="TextBlockCreateDocumentsOpisanie5" RelativePanel.RightOf="ButtonSearchOpen" Margin="10,34,0,0" FontWeight="SemiBold"/>
+
+
+            <TextBlock x:Name="TextBlockSearchName" Text="Поиск по наименованию:" RelativePanel.Below="ButtonSearchOpen" Margin="30,20,0,0" Width="300" TextWrapping="WrapWholeWords" Visibility="Collapsed"/>
+            <AutoSuggestBox x:Name="TextBoxSearchName" Width="300" PlaceholderText="Введите наименование товара" RelativePanel.Below="ButtonSearchOpen" RelativePanel.RightOf="TextBlockSearchName" Margin="10,20,0,0" Visibility="Collapsed" MaxHeight="50" TextChanged="TextBoxSearchName_TextChanged"/>
+            <Button x:Name="ButtonSearchName" Content=">" Background="#99BC64" Foreground="White" RelativePanel.Below="ButtonSearchOpen" RelativePanel.RightOf="TextBoxSearchName" Click="ButtonSearchName_Click"  Visibility="Collapsed" Margin="10,20,0,0"/>
+
+            <TextBlock x:Name="TextBlockSearchArtikul" Text="Поиск по артикулу:" RelativePanel.Below="ButtonSearchName" Margin="30,20,0,0" Width="300" TextWrapping="WrapWholeWords" Visibility="Collapsed"/>
+            <AutoSuggestBox x:Name="TextBoxSearchArtikul" Width="300" PlaceholderText="Введите артикул товара" RelativePanel.Below="ButtonSearchName" RelativePanel.RightOf="TextBlockSearchArtikul" Margin="10,20,0,0" Visibility="Collapsed" MaxHeight="50" TextChanged="TextBoxSearchArtikul_TextChanged"/>
+            <Button x:Name="ButtonSearchArtikul" Content=">" Background="#99BC64" Foreground="White" RelativePanel.Below="ButtonSearchName" RelativePanel.RightOf="TextBoxSearchArtikul" Click="ButtonSearchArtikul_Click"  Visibility="Collapsed" Margin="10,20,0,0"/>
+
+
+            <TextBlock x:Name="TextBlockSearchEd" Text="Поиск по ед.измерения:" RelativePanel.Below="TextBlockSearchArtikul" Margin="30,20,0,0" Width="300" TextWrapping="WrapWholeWords" Visibility="Collapsed"/>
+            <AutoSuggestBox x:Name="TextBoxSearchEd" PlaceholderText="Введите ед.измерения" Width="300" RelativePanel.Below="TextBlockSearchArtikul" RelativePanel.RightOf="TextBlockSearchEd" Margin="10,20,0,0" Visibility="Collapsed" MaxHeight="50" TextChanged="TextBoxSearchEd_TextChanged"/>
+            <Button x:Name="ButtonSearchEd" Content=">" Background="#99BC64" Foreground="White" RelativePanel.Below="TextBlockSearchArtikul" RelativePanel.RightOf="TextBoxSearchEd" Click="ButtonSearchEd_Click"  Visibility="Collapsed" Margin="10,20,0,0"/>
+
+            <TextBlock x:Name="TextBlockSearchPrimechanie" Text="Поиск по примечанию:" RelativePanel.Below="TextBlockSearchEd" Margin="30,20,0,0" Width="300" TextWrapping="WrapWholeWords" Visibility="Collapsed"/>
+            <AutoSuggestBox x:Name="TextBoxSearchPrimechanie" Width="300" PlaceholderText="Введите примечание" RelativePanel.Below="TextBlockSearchEd" RelativePanel.RightOf="TextBlockSearchPrimechanie" Margin="10,20,0,0" Visibility="Collapsed" MaxHeight="50" TextChanged="TextBoxSearchPrimechanie_TextChanged"/>
+            <Button x:Name="ButtonSearchPrimechanie" Content=">" Background="#99BC64" Foreground="White" RelativePanel.Below="TextBlockSearchEd" RelativePanel.RightOf="TextBoxSearchPrimechanie" Click="ButtonSearchPrimechanie_Click"  Visibility="Collapsed" Margin="10,20,0,0"/>
+
+            <Button x:Name="ButtonShowWholeBase" Content="Показать всю базу" Background="#99BC64" Foreground="White" RelativePanel.Below="ButtonSearchPrimechanie" Margin="20,25,0,0" Click="ButtonShowWholeBase_Click"  Visibility="Collapsed" />
+            <Rectangle x:Name="RazdelitelSearch" RelativePanel.Below="ButtonShowWholeBase" Width="1180" Height="0.75" Fill="LightGray" Margin="10,20,0,0" Visibility="Collapsed"/>
+
+            <Button x:Name="ButtonOtobrazhenieOpen" Content="+" Background="#99BC64" Foreground="White" RelativePanel.Below="RazdelitelSearch" Margin="20,20,0,0" Click="ButtonOtobrazhenieOpen_Click" />
+            <TextBlock x:Name="TextBlockOtobrazhenieOpen" Text="НАСТРОЙКИ ОТОБРАЖЕНИЯ" RelativePanel.Below="RazdelitelSearch" RelativePanel.RightOf="ButtonOtobrazhenieOpen" Margin="10,24,0,0" FontWeight="SemiBold"/>
+
+            <StackPanel x:Name="StackPanelOtobrazhenie" Orientation="Horizontal" RelativePanel.Below="ButtonOtobrazhenieOpen" Margin="30,20,0,0" Visibility="Collapsed">
+                <TextBlock Text="Отображать столбцы:" Margin="0,13,0,0" />
+                <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                    <CheckBox x:Name="CheckBoxKolvo" Content="Количество товара" Unchecked="CheckBoxKolvo_Unchecked" Checked="CheckBoxKolvo_Checked" Margin="0,7,0,0" />
+                    <CheckBox x:Name="CheckBoxNKolvo" Content="Необходимое кол-во товара" Unchecked="CheckBoxNKolvo_Unchecked" Checked="CheckBoxNKolvo_Checked" Margin="0,7,0,0" />
+                    <CheckBox x:Name="CheckBoxEdIzm" Content="Ед.измерения" Checked="CheckBoxEdIzm_Checked" Unchecked="CheckBoxEdIzm_Unchecked" Margin="0,7,0,0" />
+                    <CheckBox x:Name="CheckBoxPrimechanie" Content="Примечание" Checked="CheckBoxPrimechanie_Checked" Unchecked="CheckBoxPrimechanie_Unchecked" Margin="0,7,0,0" />
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                    <CheckBox x:Name="CheckBoxArtikul" Content="Артикул"  Checked="CheckBoxArtikul_Checked" Unchecked="CheckBoxArtikul_Unchecked" Margin="0,7,0,0"/>
+                    <CheckBox x:Name="CheckBoxMyEdPrice" Content="Закупочная цена" Checked="CheckBoxMyEdPrice_Checked" Unchecked="CheckBoxMyEdPrice_Unchecked" Margin="0,7,0,0"/>
+                    <CheckBox x:Name="CheckBoxSaleEdPrice" Content="Цена для клиента" Checked="CheckBoxSaleEdPrice_Checked" Unchecked="CheckBoxSaleEdPrice_Unchecked" Margin="0,7,0,0"/>
+                </StackPanel>
+                 </StackPanel>
+            <Rectangle x:Name="RazdelitelOtobrazhenie" RelativePanel.Below="StackPanelOtobrazhenie" Width="1180" Height="0.75" Fill="LightGray" Margin="10,20,0,0" Visibility="Collapsed"/>
+
+
+            <Button x:Name="AddTovar" Content="Добавить товар" RelativePanel.Below="RazdelitelOtobrazhenie" Margin="20,40,0,0" Click="AddTovar_Click"/>
+            <Button Visibility="Collapsed" x:Name="PRINTBUTTON" Content="Тест печати" RelativePanel.Below="RazdelitelOtobrazhenie" RelativePanel.RightOf="AddTovar" Margin="20,40,0,0" Click="Print_Click"/>
+            <Button x:Name="ShowOkonchanie" Content="Показать заканчивающиеся товары" Background="#99BC64" Foreground="White" RelativePanel.Below="AddTovar" Click="ShowOkonchanie_Click"  Margin="20,20,0,0"/>
+            <Button x:Name="ShowAllTovar" Content="Показать все товары" RelativePanel.Below="AddTovar" RelativePanel.RightOf="ShowOkonchanie" Margin="20,20,0,0" Click="ButtonShowWholeBase_Click"/>
+
+            <Rectangle x:Name="Razdelitel1" RelativePanel.Below="ShowOkonchanie" Width="1280" Height="0.75" Fill="LightGray" Margin="10,20,0,0"/>
+
+            <StackPanel x:Name="PanelZagolovokRow" Margin="20,25,0,0" HorizontalAlignment="Center" Orientation="Horizontal" RelativePanel.Below="Razdelitel1">
+                <TextBlock x:Name="TextBlockTovarNameTable" FontSize="15" Text="Наименование товара" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords" TextAlignment="Left"/>
+                <TextBlock x:Name="TextBlockKolvoTable" FontSize="15" Text="Количество" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords" TextAlignment="Left"/>
+                <TextBlock x:Name="TextBlockNKolvoTable" FontSize="15" Text="Необходимое количество" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords" TextAlignment="Left"/>
+                <TextBlock x:Name="TextBlockEdIzmTable" FontSize="15" Text="Ед.измерения" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords" TextAlignment="Left"/>
+                <TextBlock x:Name="TextBlockArtikulTable" FontSize="15" Text="Артикул" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords" TextAlignment="Left"/>
+                <TextBlock x:Name="TextBlockMyEdPriceTable" FontSize="15" Text="Закупочная цена (себестоимость)         [₽ за ед.]" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords" TextAlignment="Left"/>
+                <TextBlock x:Name="TextBlockSaleEdPriceTable" FontSize="15" Text="Цена для клиента      [₽ за ед.]" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords" TextAlignment="Left"/>
+                <TextBlock x:Name="TextBlockPrimechanieTable" FontSize="15" Text="Примечание" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords" TextAlignment="Left"/>
+
+            </StackPanel>
+
+            <Rectangle x:Name="Razdelitel2" RelativePanel.Below="PanelZagolovokRow" Width="1280" Height="0.75" Fill="LightGray" Margin="10,20,0,0"/>
+
+            <ListView Name="SkladListL" ItemsSource="{x:Bind Tovari}" IsItemClickEnabled="True" ItemClick="SkladListL_ItemClick" RelativePanel.Below="Razdelitel2" Margin="10,20,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="data:SkladData">
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock FontSize="14" Text="{x:Bind TOVARNAME}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords" TextAlignment="Left"/>
+                            <TextBlock FontSize="14" Text="{x:Bind KOLICHESTVO}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords" Visibility="{x:Bind IsVisibleKOLICHESTVO}" TextAlignment="Left"/>
+                            <TextBlock FontSize="14" Text="{x:Bind NKOLICHESTVO}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords" Visibility="{x:Bind IsVisibleNKOLICHESTVO}" TextAlignment="Left"/>
+                            <TextBlock FontSize="14" Text="{x:Bind EDIZM}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords" Visibility="{x:Bind IsVisibleEDIZM}" TextAlignment="Left"/>
+                            <TextBlock FontSize="14" Text="{x:Bind ARTIKUL}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords" Visibility="{x:Bind IsVisibleARTIKUL}" TextAlignment="Left"/>
+                            <TextBlock FontSize="14" Text="{x:Bind MYEDPRICE}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords" Visibility="{x:Bind IsVisibleMYEDPRICE}" TextAlignment="Left"/>
+                            <TextBlock FontSize="14" Text="{x:Bind SALEEDPRICE}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords" Visibility="{x:Bind IsVisibleSALEEDPRICE}" TextAlignment="Left"/>
+                            <TextBlock FontSize="14" Text="{x:Bind PRIMECHANIE}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords" Visibility="{x:Bind IsVisiblePRIMECHANIE}" TextAlignment="Left"/>
+
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Rectangle x:Name="Razdelitel3" RelativePanel.Below="SkladListL" Width="1280" Height="0.75" Fill="LightGray" Margin="10,30,0,0"/>
+
+
+            <TextBlock x:Name="Buffer1" Visibility="Collapsed"/>
+            <TextBlock x:Name="Buffer2" Visibility="Collapsed"/>
+            <TextBlock x:Name="Buffer3" Visibility="Collapsed"/>
+            <TextBlock x:Name="Buffer4" Visibility="Collapsed"/>
+            <TextBlock x:Name="StatusFile" RelativePanel.Below="Razdelitel3" Margin="20,40,0,0" />
+            <TextBlock RelativePanel.Below="StatusFile" Margin="20,25,0,0"/>
+            <TextBlock x:Name="SearchStatus" Visibility="Collapsed" Text="ALL"/>
+            
+            
+            
+            <ContentDialog x:Name="ContentDialogAddNewTovar" VerticalAlignment="Stretch" Title="Добавить товар/услугу" PrimaryButtonText="Добавить" SecondaryButtonText="Закрыть" MinWidth="400" MaxWidth="750" PrimaryButtonClick="ContentDialogAddNewTovar_PrimaryButtonClick">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Наименование товара:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <AutoSuggestBox x:Name="TextBoxTovarName" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextChanged="TextBoxTovarName_TextChanged"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Артикул:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <AutoSuggestBox x:Name="TextBoxTovarArtikul" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextChanged="TextBoxTovarArtikul_TextChanged"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Количество товара на складе:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBox x:Name="TextBoxKolichestvoTovara" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Необходимое количество товара на складе:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBox x:Name="TextBoxNKolichestvoTovara" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Единица измерения:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <AutoSuggestBox x:Name="TextBoxEdIzmTovara" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextChanged="TextBoxEdIzmTovara_TextChanged"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Закупочная цена(себестоимость) [₽]:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBox x:Name="TextBoxMyPrice" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Цена товара для клиента [₽]:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBox x:Name="TextBoxSalePrice" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Примечание:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <AutoSuggestBox x:Name="TextBoxPrimechanie" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextChanged="TextBoxPrimechanie_TextChanged"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </ContentDialog>
+
+
+            <ContentDialog x:Name="ContentDialogChangeTovar" VerticalAlignment="Stretch" Title="Редактировать товар/услугу" PrimaryButtonText="Сохранить и закрыть"  SecondaryButtonText="Удалить" MinWidth="400" MaxWidth="750" PrimaryButtonClick="ContentDialogChangeTovar_PrimaryButtonClick"  SecondaryButtonClick="ContentDialogChangeTovar_SecondaryButtonClick" >
+                <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Наименование товара:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <AutoSuggestBox x:Name="TextBoxTovarName1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextChanged="TextBoxTovarName1_TextChanged"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Артикул:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                        <AutoSuggestBox x:Name="TextBoxTovarArtikul1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextChanged="TextBoxTovarArtikul1_TextChanged"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Количество товара на складе:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBox x:Name="TextBoxKolichestvoTovara1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Необходимое количество товара на складе:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBox x:Name="TextBoxNKolichestvoTovara1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Единица измерения:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <AutoSuggestBox x:Name="TextBoxEdIzmTovara1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextChanged="TextBoxEdIzmTovara1_TextChanged"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Закупочная цена(себестоимость):" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBox x:Name="TextBoxMyPrice1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Цена товара для клиента [₽]:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBox x:Name="TextBoxSalePrice1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Примечание:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <AutoSuggestBox x:Name="TextBoxPrimechanie1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextChanged="TextBoxPrimechanie1_TextChanged"/>
+                        </StackPanel>
+
+
+                    </StackPanel>
+                </ScrollViewer>
+            </ContentDialog>
+
+            <ContentDialog x:Name="ContentDialogDelete" VerticalAlignment="Stretch" Title="Удалить товар?" Padding="40,40,40,40" PrimaryButtonText="УДАЛИТЬ ТОВАР" SecondaryButtonText="ОТМЕНА" PrimaryButtonClick="ContentDialogDelete_PrimaryButtonClick">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Margin="20,20,0,0">
+                        <TextBlock Text="ТОВАР БУДЕТ УДАЛЕН." FontWeight="Bold" HorizontalAlignment="Left" Width="300" TextWrapping="WrapWholeWords"/>
+                    </StackPanel>
+                </StackPanel>
+            </ContentDialog>
+
+
+        </RelativePanel>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocuments5.Width" Value="700" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="700" />
+                        <Setter Target="StatusFile.Width" Value="700"/>
+                        
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="WideState2">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="520" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocuments5.Width" Value="420" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="420" />
+                        <Setter Target="StatusFile.Width" Value="420"/>
+
+                        <Setter Target="TextBoxSearchName.(RelativePanel.Below)" Value="TextBlockSearchName"/>
+                        <Setter Target="TextBoxSearchName.(RelativePanel.RightOf)" Value=""/>
+                        <Setter Target="TextBoxSearchName.Margin" Value="30,10,0,0"/>
+
+                        <Setter Target="ButtonSearchName.(RelativePanel.Below)" Value="TextBlockSearchName"/>
+                        <Setter Target="ButtonSearchName.Margin" Value="10,10,0,0"/>
+
+
+                        <Setter Target="TextBlockSearchArtikul.(RelativePanel.Below)" Value="TextBoxSearchName"/>
+                        <Setter Target="TextBoxSearchArtikul.(RelativePanel.Below)" Value="TextBlockSearchArtikul"/>
+                        <Setter Target="TextBoxSearchArtikul.(RelativePanel.RightOf)" Value=""/>
+                        <Setter Target="TextBoxSearchArtikul.Margin" Value="30,10,0,0"/>
+                        <Setter Target="ButtonSearchArtikul.(RelativePanel.Below)" Value="TextBlockSearchArtikul"/>
+                        <Setter Target="ButtonSearchArtikul.Margin" Value="10,10,0,0"/>
+
+                        <Setter Target="TextBlockSearchEd.(RelativePanel.Below)" Value="TextBoxSearchArtikul"/>
+                        <Setter Target="TextBoxSearchEd.(RelativePanel.Below)" Value="TextBlockSearchEd"/>
+                        <Setter Target="TextBoxSearchEd.(RelativePanel.RightOf)" Value=""/>
+                        <Setter Target="TextBoxSearchEd.Margin" Value="30,10,0,0"/>
+                        <Setter Target="ButtonSearchEd.(RelativePanel.Below)" Value="TextBlockSearchEd"/>
+                        <Setter Target="ButtonSearchEd.Margin" Value="10,10,0,0"/>
+
+                        <Setter Target="TextBlockSearchPrimechanie.(RelativePanel.Below)" Value="TextBoxSearchEd"/>
+                        <Setter Target="TextBoxSearchPrimechanie.(RelativePanel.Below)" Value="TextBlockSearchPrimechanie"/>
+                        <Setter Target="TextBoxSearchPrimechanie.(RelativePanel.RightOf)" Value=""/>
+                        <Setter Target="TextBoxSearchPrimechanie.Margin" Value="30,10,0,0"/>
+                        <Setter Target="ButtonSearchPrimechanie.(RelativePanel.Below)" Value="TextBlockSearchPrimechanie"/>
+                        <Setter Target="ButtonSearchPrimechanie.Margin" Value="10,10,0,0"/>
+
+                        <Setter Target="ButtonShowWholeBase.(RelativePanel.Below)" Value="TextBoxSearchPrimechanie"/>
+
+                        <Setter Target="StackPanelOtobrazhenie.Orientation" Value="Vertical"/>
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocuments5.Width" Value="300" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="300" />
+                        <Setter Target="StatusFile.Width" Value="300"/>
+                        
+                        
+                        <Setter Target="TextBoxSearchName.(RelativePanel.Below)" Value="TextBlockSearchName"/>
+                        <Setter Target="TextBoxSearchName.(RelativePanel.RightOf)" Value=""/>
+                        <Setter Target="TextBoxSearchName.Margin" Value="30,10,0,0"/>
+
+                        <Setter Target="ButtonSearchName.(RelativePanel.Below)" Value="TextBlockSearchName"/>
+                        <Setter Target="ButtonSearchName.Margin" Value="10,10,0,0"/>
+
+                        <Setter Target="TextBlockSearchArtikul.(RelativePanel.Below)" Value="TextBoxSearchName"/>
+                        <Setter Target="TextBoxSearchArtikul.(RelativePanel.Below)" Value="TextBlockSearchArtikul"/>
+                        <Setter Target="TextBoxSearchArtikul.(RelativePanel.RightOf)" Value=""/>
+                        <Setter Target="TextBoxSearchArtikul.Margin" Value="30,10,0,0"/>
+                        <Setter Target="ButtonSearchArtikul.(RelativePanel.Below)" Value="TextBlockSearchArtikul"/>
+                        <Setter Target="ButtonSearchArtikul.Margin" Value="10,10,0,0"/>
+
+                        <Setter Target="TextBlockSearchEd.(RelativePanel.Below)" Value="TextBoxSearchArtikul"/>
+                        <Setter Target="TextBoxSearchEd.(RelativePanel.Below)" Value="TextBlockSearchEd"/>
+                        <Setter Target="TextBoxSearchEd.(RelativePanel.RightOf)" Value=""/>
+                        <Setter Target="TextBoxSearchEd.Margin" Value="30,10,0,0"/>
+                        <Setter Target="ButtonSearchEd.(RelativePanel.Below)" Value="TextBlockSearchEd"/>
+                        <Setter Target="ButtonSearchEd.Margin" Value="10,10,0,0"/>
+
+                        <Setter Target="TextBlockSearchPrimechanie.(RelativePanel.Below)" Value="TextBoxSearchEd"/>
+                        <Setter Target="TextBoxSearchPrimechanie.(RelativePanel.Below)" Value="TextBlockSearchPrimechanie"/>
+                        <Setter Target="TextBoxSearchPrimechanie.(RelativePanel.RightOf)" Value=""/>
+                        <Setter Target="TextBoxSearchPrimechanie.Margin" Value="30,10,0,0"/>
+                        <Setter Target="ButtonSearchPrimechanie.(RelativePanel.Below)" Value="TextBlockSearchPrimechanie"/>
+                        <Setter Target="ButtonSearchPrimechanie.Margin" Value="10,10,0,0"/>
+
+                        <Setter Target="ButtonShowWholeBase.(RelativePanel.Below)" Value="TextBoxSearchPrimechanie"/>
+
+                        <Setter Target="ShowAllTovar.(RelativePanel.Below)" Value="ShowOkonchanie"/>
+                        <Setter Target="ShowAllTovar.(RelativePanel.RightOf)" Value=""/>
+                        <Setter Target="Razdelitel1.(RelativePanel.Below)" Value="ShowAllTovar"/>
+
+                        <Setter Target="StackPanelOtobrazhenie.Orientation" Value="Vertical"/>
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+
+    </ScrollViewer>
+
+</Page>

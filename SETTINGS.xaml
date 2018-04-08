@@ -1,0 +1,206 @@
+﻿<Page
+    x:Class="Мастерконд.Документы.SETTINGS"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Мастерконд.Документы"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+
+    <ScrollViewer ScrollViewer.HorizontalScrollMode="Auto" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="White">
+
+        <RelativePanel ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <TextBlock x:Name="TextBlockCreateDocuments5" Text="НАСТРОЙКИ"  FontSize="16" FontWeight="SemiBold" Margin="20,10,0,0" Width="700" Foreground="Green"/>
+            <TextBlock x:Name="TextBlockCreateDocumentsOpisanie5" Text="Для работы с одной базой данных на разных устройствах используются операции экспорта-импорта файла базы данных. Сохраните (экспортируйте) базу данных из программы в OneDrive и скопируйте (импортируйте) ее на другом устройстве. Внимание - при импортировании и экспортировании файл базы данных приложения sdelkidatabase.db перезаписывается." TextWrapping="WrapWholeWords"  Margin="20,15,0,0" RelativePanel.Below="TextBlockCreateDocuments5" Width="700"/>
+            <Button x:Name="ExportDatabase" Click="ExportDatabase_Click" RelativePanel.Below="TextBlockCreateDocumentsOpisanie5" Margin="20,20,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE2B4;" FontSize="24"/>
+                    <TextBlock Text="Экспортировать базу данных" Margin="10,4,0,0"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="ImportDatabase" Click="ImportDatabase_Click" RelativePanel.Below="TextBlockCreateDocumentsOpisanie5" RelativePanel.RightOf="ExportDatabase" Margin="20,20,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE2B3;" FontSize="24"/>
+                    <TextBlock Text="Импортировать базу данных" Margin="10,4,0,0"/>
+                </StackPanel>
+            </Button>
+            <TextBlock x:Name="TextBlockDeleteBase" Text="УДАЛИТЬ БАЗУ ДАННЫХ" FontSize="16" FontWeight="SemiBold" Margin="20,30,0,0" RelativePanel.Below="ExportDatabase" Foreground="Green"/>
+            <Button x:Name="ButtonDeleteDB" RelativePanel.Below="TextBlockDeleteBase" Margin="20,20,0,0" Click="ButtonDeleteDB_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE107;"  FontSize="24"/>
+                    <TextBlock Text="Удалить базу данных" Margin="10,4,0,0"/>
+                </StackPanel>
+            </Button>
+            
+            <Rectangle Visibility="Collapsed" x:Name="Razdelitel1" RelativePanel.Below="TextBlockCreateDocumentsOpisanie5" Width="1180" Height="0.75" Fill="LightGray" Margin="10,20,0,0"/>
+
+            <TextBlock x:Name="TextBlockNalogSystem" Text="СИСТЕМА НАЛОГООБЛОЖЕНИЯ" FontSize="16" FontWeight="SemiBold" Margin="20,30,0,0" RelativePanel.Below="ButtonDeleteDB" Foreground="Green"/>
+            <RadioButton x:Name="RadioButtonSixPercent" GroupName="Nalogi" RelativePanel.Below="TextBlockNalogSystem" Margin="20,15,0,0" Click="RadioButtonSixPercent_Click" FontSize="13">
+                <TextBlock x:Name="TBRB6" Text="УПРОЩЕННАЯ СИСТЕМА НАЛОГООБЛОЖЕНИЯ 6% (ДОХОД)" TextWrapping="WrapWholeWords"/>
+            </RadioButton>
+            <RadioButton x:Name="RadioButtonFifteenPercent" GroupName="Nalogi" RelativePanel.Below="RadioButtonSixPercent" Margin="20,3,0,0" Click="RadioButtonFifteenPercent_Click" FontSize="13">
+                <TextBlock x:Name="TBRB15" Text="УПРОЩЕННАЯ СИСТЕМА НАЛОГООБЛОЖЕНИЯ 15% (ДОХОД МИНУС РАСХОД)" TextWrapping="WrapWholeWords"/>
+            </RadioButton>
+
+            <TextBlock x:Name="TextBlockPrinting" Text="ВЫВОД ДОКУМЕНТОВ (РАЗДЕЛЫ &quot;ДОКУМЕНТЫ (ЮР.ЛИЦА)&quot;, &quot;ТЕХНИЧЕСКОЕ ЗАКЛЮЧЕНИЕ&quot;, &quot;РЕДАКТИРОВАТЬ МОИ РЕКВИЗИТЫ&quot;)" FontSize="16" FontWeight="SemiBold" Margin="20,30,0,0" RelativePanel.Below="RadioButtonFifteenPercent" Foreground="Green" TextWrapping="WrapWholeWords"/>
+            <RadioButton x:Name="RadioButtonHTMLPrinting" GroupName="PRINTING" RelativePanel.Below="TextBlockPrinting" Margin="20,15,0,0" Click="RadioButtonHTMLPrinting_Click"  FontSize="13">
+                <TextBlock x:Name="TBRBHTML" Text="ФОРМАТ HTML (СТАРЫЙ ВАРИАНТ)" TextWrapping="WrapWholeWords"/>
+            </RadioButton>
+            <RadioButton x:Name="RadioButtonPDFPrinting" GroupName="PRINTING" RelativePanel.Below="RadioButtonHTMLPrinting" Margin="20,3,0,0" Click="RadioButtonPDFPrinting_Click"  FontSize="13">
+                <TextBlock x:Name="TBRBPDF" Text="ФОРМАТ PDF, ЛИБО НАПРЯМУЮ НА ПРИНТЕР (НОВЫЙ ВАРИАНТ)" TextWrapping="WrapWholeWords"/>
+            </RadioButton>
+
+
+
+            <TextBlock x:Name="TextBlockShrifti" Text="ШРИФТЫ И РАЗМЕРЫ ТЕКСТА (РАЗДЕЛЫ &quot;ДОКУМЕНТЫ (ЮР.ЛИЦА)&quot;, &quot;ТЕХНИЧЕСКОЕ ЗАКЛЮЧЕНИЕ&quot;, &quot;РЕДАКТИРОВАТЬ МОИ РЕКВИЗИТЫ&quot;)" FontSize="16" FontWeight="SemiBold" Margin="20,30,0,0" RelativePanel.Below="RadioButtonPDFPrinting" Foreground="Green" TextWrapping="WrapWholeWords"/>
+            <StackPanel x:Name="StackPanelShrifti" Orientation="Vertical" RelativePanel.Below="TextBlockShrifti" Margin="20,15,0,0">
+
+                <StackPanel x:Name="StackPanelShriftiZagolovok" Orientation="Horizontal">
+                    <TextBlock Text="Верхний колонтитул (слоган):" Width="200"/>
+                    <ComboBox x:Name="ComboBoxShriftZagolovka" Margin="10,0,0,0" Width="150">
+                        <ComboBoxItem x:Name="ComboShZArial" Content="Arial" Tapped="ComboShZArial_Tapped"/>
+                        <ComboBoxItem x:Name="ComboShZSegoe" Content="Segoe" Tapped="ComboShZSegoe_Tapped"/>
+                    </ComboBox>
+                    <ComboBox x:Name="ComboBoxRazmerShriftZagolovka" Margin="10,0,0,0" Width="50">
+                        <ComboBoxItem x:Name="ComboRShZ8" Content="8" Tapped="ComboRShZ8_Tapped"/>
+                        <ComboBoxItem x:Name="ComboRShZ9" Content="9" Tapped="ComboRShZ9_Tapped"/>
+                        <ComboBoxItem x:Name="ComboRShZ10" Content="10" Tapped="ComboRShZ10_Tapped"/>
+                        <ComboBoxItem x:Name="ComboRShZ11" Content="11" Tapped="ComboRShZ11_Tapped"/>
+                        <ComboBoxItem x:Name="ComboRShZ12" Content="12" Tapped="ComboRShZ12_Tapped"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel x:Name="StackPanelShriftiText" Orientation="Horizontal" Margin="0,20,0,0">
+                    <TextBlock Text="Основной текст документов (размеры заголовков в тексте рассчитываются автоматически):" Width="200"/>
+                    <ComboBox x:Name="ComboBoxShriftText" Margin="10,0,0,0" Width="150">
+                        <ComboBoxItem x:Name="ComboShTArial" Content="Arial" Tapped="ComboShTArial_Tapped"/>
+                        <ComboBoxItem x:Name="ComboShTSegoe" Content="Segoe" Tapped="ComboShTSegoe_Tapped"/>
+                    </ComboBox>
+                    <ComboBox x:Name="ComboBoxRazmerShriftText" Margin="10,0,0,0" Width="50">
+                        <ComboBoxItem x:Name="ComboRShT8" Content="8" Tapped="ComboRShT8_Tapped"/>
+                        <ComboBoxItem x:Name="ComboRShT9" Content="9" Tapped="ComboRShT9_Tapped"/>
+                        <ComboBoxItem x:Name="ComboRShT10" Content="10" Tapped="ComboRShT10_Tapped"/>
+                        <ComboBoxItem x:Name="ComboRShT11" Content="11" Tapped="ComboRShT11_Tapped"/>
+                        <ComboBoxItem x:Name="ComboRShT12" Content="12" Tapped="ComboRShT12_Tapped"/>
+                    </ComboBox>
+                </StackPanel>
+
+            </StackPanel>
+
+
+            <TextBlock x:Name="TextBlockDeletePIN" Text="УДАЛИТЬ ПИН-КОД ВХОДА В ПРИЛОЖЕНИЕ" FontSize="16" FontWeight="SemiBold" Margin="20,30,0,0" RelativePanel.Below="StackPanelShrifti" Foreground="Green"/>
+            <StackPanel x:Name="EnterPin" Orientation="Vertical" Margin="20,20,0,0" RelativePanel.Below="TextBlockDeletePIN" Visibility="Collapsed">
+                <TextBlock Text="Введите ваш ПИН-код:" />
+                <PasswordBox x:Name="EnterPINPasswordBox" Width="300" Margin="0,10,0,0" />
+            </StackPanel>
+            <Button x:Name="ButtonDeletePIN" RelativePanel.Below="EnterPin" Margin="20,20,0,0" Click="ButtonDeletePIN_Click">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE107;"  FontSize="24"/>
+                    <TextBlock Text="Удалить ПИН-код" Margin="10,4,0,0"/>
+                </StackPanel>
+            </Button>
+            <TextBlock x:Name="PINNotification" Text="* При следующем входе в приложение Вы сможете задать новый ПИН-код" RelativePanel.Below="ButtonDeletePIN" Margin="20,20,0,0" />
+
+            <TextBlock x:Name="TextBlockNastrojkiDokumentovZagolovok" Visibility="Collapsed" Text="НАСТРОЙКИ ВЫВОДА ДОКУМЕНТОВ" FontSize="16" FontWeight="SemiBold" Margin="20,30,0,0" RelativePanel.Below="PINNotification" Foreground="Green"/>
+
+            
+
+            
+            <TextBlock x:Name="StatusFile" RelativePanel.Below="TextBlockNastrojkiDokumentovZagolovok" Margin="20,40,0,0" />
+            
+            <ContentDialog x:Name="ContentDialogDeleteDB" VerticalAlignment="Stretch" Title="Удалить базу данных?" Padding="40,40,40,40" PrimaryButtonText="УДАЛИТЬ БД" SecondaryButtonText="ОТМЕНА" PrimaryButtonClick="ContentDialogDeleteDB_PrimaryButtonClick">
+                <StackPanel Orientation="Vertical">
+
+                    <StackPanel Orientation="Horizontal" Margin="20,20,0,0">
+                        <TextBlock Text="ВСЕ данные из базы (сделки, содержимое мини-склада) будет УДАЛЕНО." FontWeight="Bold" HorizontalAlignment="Left" Width="300" TextWrapping="WrapWholeWords"/>
+                    </StackPanel>
+
+                    
+                </StackPanel>
+            </ContentDialog>
+
+
+
+
+
+        </RelativePanel>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocuments5.Width" Value="700" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="700" />
+                        <Setter Target="StatusFile.Width" Value="700"/>
+                        <Setter Target="PINNotification.Width" Value="700"/>
+                        <Setter Target="TBRB6.Width" Value="700"/>
+                        <Setter Target="TBRB15.Width" Value="700"/>
+                        <Setter Target="TBRBHTML.Width" Value="700"/>
+                        <Setter Target="TBRBPDF.Width" Value="700"/>
+                        <Setter Target="TextBlockPrinting.Width" Value="700" />
+                        <Setter Target="TextBlockShrifti.Width" Value="700" />
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="WideState2">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="520" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocuments5.Width" Value="420" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="420" />
+                        <Setter Target="StatusFile.Width" Value="420"/>
+                        <Setter Target="PINNotification.Width" Value="420"/>
+                        <Setter Target="TBRB6.Width" Value="420"/>
+                        <Setter Target="TBRB15.Width" Value="420"/>
+                        <Setter Target="TBRBHTML.Width" Value="420"/>
+                        <Setter Target="TBRBPDF.Width" Value="420"/>
+                        <Setter Target="TextBlockPrinting.Width" Value="420" />
+                        <Setter Target="TextBlockShrifti.Width" Value="420" />
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocuments5.Width" Value="300" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="300" />
+                        <Setter Target="StatusFile.Width" Value="300"/>
+
+                        <Setter Target="ImportDatabase.(RelativePanel.Below)" Value="ExportDatabase"/>
+                        <Setter Target="ImportDatabase.Margin" Value="20,20,0,0" />
+                        <Setter Target="ImportDatabase.(RelativePanel.RightOf)" Value=""/>
+
+                        <Setter Target="TextBlockDeleteBase.(RelativePanel.Below)" Value="ImportDatabase"/>
+                        <Setter Target="PINNotification.Width" Value="300"/>
+                        <Setter Target="TBRB6.Width" Value="300"/>
+                        <Setter Target="TBRB15.Width" Value="300"/>
+                        <Setter Target="TBRBHTML.Width" Value="300"/>
+                        <Setter Target="TBRBPDF.Width" Value="300"/>
+                        <Setter Target="TextBlockPrinting.Width" Value="300" />
+                        <Setter Target="TextBlockShrifti.Width" Value="300" />
+
+                        <Setter Target="StackPanelShriftiZagolovok.Orientation" Value="Vertical"/>
+                        <Setter Target="StackPanelShriftiText.Orientation" Value="Vertical"/>
+                        <Setter Target="ComboBoxShriftZagolovka.Margin" Value="0,10,0,0"/>
+                        <Setter Target="ComboBoxRazmerShriftZagolovka.Margin" Value="0,10,0,0"/>
+                        <Setter Target="ComboBoxShriftText.Margin" Value="0,10,0,0"/>
+                        <Setter Target="ComboBoxRazmerShriftText.Margin" Value="0,10,0,0"/>
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+
+    </ScrollViewer>
+
+</Page>

@@ -1,0 +1,689 @@
+﻿<Page
+    x:Class="Мастерконд.Документы.QuickPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Мастерконд.Документы"
+    xmlns:data="using:DataAppModelQuickPage"
+    xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+       <ScrollViewer ScrollViewer.HorizontalScrollMode="Auto" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="White">
+        <RelativePanel ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+
+            <TextBlock x:Name="TextBlockINTRO" Text="СВОДНЫЕ ДАННЫЕ"  FontSize="16" FontWeight="SemiBold" Margin="20,10,0,0" Foreground="Green"/>
+
+            
+            <StackPanel x:Name="StackPanelData1" RelativePanel.Below="TextBlockINTRO" Margin="20,20,0,0" Orientation="Horizontal">
+
+                <ScrollViewer x:Name="StackPanelData1SV1" Width="300" Height="300" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Background="AliceBlue"  ScrollViewer.VerticalScrollMode="Auto">
+                        <StackPanel Orientation="Vertical">
+                        <TextBlock x:Name="TextBlockSummaryData" Text="ОБЩИЕ ДАННЫЕ ПО БАЗЕ" Margin="10,10,0,0" FontWeight="SemiBold"/>
+                        <TextBlock Text="(все сделки независимо от статуса)" Margin="10,5,0,0" FontSize="13"/>
+                            
+                            <StackPanel Orientation="Horizontal" Margin="10,20,0,0">
+                            <TextBlock Text="ДОХОДЫ:" FontWeight="SemiBold" HorizontalAlignment="Left" FontSize="13" Width="100" TextAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockPanelDoxodi" Margin="10,0,0,0" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" Width="144" TextAlignment="Right"/>
+                            <TextBlock Text=" ₽" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" TextAlignment="Left"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="10,20,0,0">
+                            <TextBlock Text="РАСХОДЫ:" FontWeight="SemiBold" HorizontalAlignment="Left" FontSize="13" Width="100" TextAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockPanelRasxodi" Margin="10,0,0,0" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" Width="144" TextAlignment="Right"/>
+                            <TextBlock Text=" ₽" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" TextAlignment="Left"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="10,20,0,0">
+                            <TextBlock Text="ПРИБЫЛЬ:" FontWeight="SemiBold" HorizontalAlignment="Left" FontSize="13" Width="100" TextAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockPanelPribil" Margin="10,0,0,0" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" Width="144" TextAlignment="Right"/>
+                            <TextBlock Text=" ₽" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" TextAlignment="Left"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="10,20,0,0">
+                            <TextBlock Text="НАЛОГ:" FontWeight="SemiBold" HorizontalAlignment="Left" FontSize="13" Width="70" TextAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockPanelNalog" Margin="10,0,0,0" Foreground="DarkGreen" FontWeight="Bold" TextWrapping="WrapWholeWords" FontSize="14" Width="186" TextAlignment="Right"/>
+                            
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="10,20,0,0">
+                            <TextBlock Text="ПРИБЫЛЬ:" FontWeight="SemiBold" HorizontalAlignment="Left" FontSize="13" Width="100" TextAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockPanelPribilAfterNalogi" Margin="10,0,0,0" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" Width="144" TextAlignment="Right"/>
+                            <TextBlock Text=" ₽" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" TextAlignment="Left"/>
+                        </StackPanel>
+                        <TextBlock Margin="10,0,0,0" Text="(после уплаты налога УСН)" FontSize="13"/>
+
+                        <StackPanel x:Name="StackPanelNalogWarning" Orientation="Horizontal" Margin="10,20,0,0" Visibility="Collapsed">
+                            <TextBlock x:Name="TextBlockPanelNalogWarning" Margin="10,0,0,0" Foreground="Black" FontWeight="Bold" TextWrapping="WrapWholeWords" HorizontalAlignment="Left" Width="300"/>
+                        </StackPanel>
+                            
+                    </StackPanel>
+                    </ScrollViewer>
+
+
+                <ScrollViewer x:Name="StackPanelData1SV2" Width="300" Height="300" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Background="#CCE0FFD2" ScrollViewer.VerticalScrollMode="Auto" Margin="20,0,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock x:Name="TextBlockSummaryData2" Text="ЗАВЕРШЕННЫЕ СДЕЛКИ" Margin="10,10,0,0" FontWeight="SemiBold"/>
+
+                        <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                            <TextBlock Text="Общая сумма сделок:" FontSize="14" Width="150" TextAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockZSdelkiSumma" Margin="10,0,0,0" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" TextAlignment="Right" Width="94"/>
+                            <TextBlock Text=" ₽" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" TextAlignment="Left"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="10,5,0,0">
+                            <TextBlock Text="Прибыль:" FontSize="14" Width="150" TextAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockZSdelkiSummaPribil" Margin="10,0,0,0" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" TextAlignment="Right" Width="94"/>
+                            <TextBlock Text=" ₽" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" TextAlignment="Left"/>
+                        </StackPanel>
+
+                        <ListView Name="ZSdelkiList" ItemsSource="{x:Bind ZSdelki}" Margin="10,20,0,0" IsItemClickEnabled="True" ItemClick="ZSdelkiList_ItemClick">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="data:ZSdelkiData">
+                                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                        <TextBlock FontSize="13" Text="{x:Bind KONTRNAME}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords"/>
+                                        <TextBlock FontSize="13" Text="{x:Bind SUMMAITOGO}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="70" TextWrapping="WrapWholeWords" TextAlignment="Right"/>
+                                        <TextBlock FontSize="13" Text="{x:Bind VALUTA}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5,0,0,0" TextWrapping="WrapWholeWords"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    
+                    </StackPanel>
+                </ScrollViewer>
+
+            </StackPanel>
+            
+
+            <StackPanel x:Name="StackPanelData2" RelativePanel.Below="StackPanelData1" Margin="20,20,0,0" Orientation="Horizontal">
+
+                <ScrollViewer x:Name="StackPanelData2SV1" Width="300" Height="300" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Background="BlanchedAlmond" ScrollViewer.VerticalScrollMode="Auto">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock x:Name="TextBlockSummaryData1" Text="ЗАКАНЧИВАЮЩИЕСЯ ТОВАРЫ НА МИНИ-СКЛАДЕ" Margin="10,10,0,0" FontWeight="SemiBold"/>
+
+                        <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                            <TextBlock Text="Cумма закупки:" FontSize="14"/>
+                            <TextBlock x:Name="TextBlockSkladTovariSumma" Margin="10,0,0,0" Foreground="DarkGreen" FontWeight="Bold" FontSize="14"/>
+                            <TextBlock Text=" ₽" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" />
+                            <Button Content="" FontFamily="Segoe MDL2 Assets" FontSize="12" Margin="15,-4,0,0" Background="NavajoWhite" FontWeight="ExtraBold">
+                                <Button.Flyout>
+                                    <Flyout x:Name="HelpBoxTovari">
+                                        <Flyout.Content>
+                                            <StackPanel Orientation="Vertical" MaxWidth="300">
+                                                <TextBlock Text="Стоимость закупки заканчивающегося товара рассчитывается как разница между необходимым количеством товара на складе и имеющимся количеством товара на складе, умноженная на себестоимость единицы товара." TextWrapping="WrapWholeWords" />
+                                                <TextBlock Text="Проще говоря: " TextWrapping="WrapWholeWords" Margin="0,10,0,0" FontWeight="SemiBold"/>
+                                                <TextBlock Text="Стоимость закупки: S" TextWrapping="WrapWholeWords" Margin="0,10,0,0"/>
+                                                <TextBlock Text="Необходимое кол-во: N" TextWrapping="WrapWholeWords" />
+                                                <TextBlock Text="Имеющееся кол-во: E" TextWrapping="WrapWholeWords" />
+                                                <TextBlock Text="Себестоимость ед.: M" TextWrapping="WrapWholeWords" />
+                                                <TextBlock Text="S=(N-E)*M" TextWrapping="WrapWholeWords" Margin="0,12,0,0" FontWeight="SemiBold"/>
+                                                <TextBlock Text="В расчет берутся только те товары из раздела &quot;Мини-склад&quot;, где указаны все значения (себестоимость за ед, необходимое кол-во, имеющееся кол-во)." TextWrapping="WrapWholeWords" Margin="0,12,0,0"/>
+                                                <Button x:Name="HelpBoxTovariButton" Content="Ок, понятно" Margin="0,22,0,0" Click="HelpBoxTovariButton_Click" />
+                                            </StackPanel>
+                                        </Flyout.Content>
+                                    </Flyout>
+                                </Button.Flyout>
+                            </Button>
+                        </StackPanel>
+
+                        <ListView Name="TovariList" ItemsSource="{x:Bind Tovari}" Margin="10,20,0,0" IsItemClickEnabled="True" ItemClick="TovariList_ItemClick">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="data:SkladData">
+                                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                        <TextBlock FontSize="13" Text="{x:Bind TOVARNAME}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords"/>
+                                        <TextBlock FontSize="13" Text="{x:Bind KOLICHESTVO}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="7,0,0,0" Width="60" TextWrapping="WrapWholeWords"/>
+                                        <TextBlock FontSize="13" Text="{x:Bind EDIZM}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5,0,0,0" Width="40" TextWrapping="WrapWholeWords"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                    </StackPanel>
+                </ScrollViewer>
+
+
+                <ScrollViewer x:Name="StackPanelData2SV2" Width="300" Height="300" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Background="LavenderBlush" ScrollViewer.VerticalScrollMode="Auto" Margin="20,0,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock x:Name="TextBlockSummaryData21" Text="ВСЕ НЕЗАВЕРШЕННЫЕ СДЕЛКИ" Margin="10,10,0,0" FontWeight="SemiBold"/>
+                        
+                        <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                            <TextBlock Text="Общая сумма сделок:" FontSize="14" Width="150" TextAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockNZSdelkiSumma" Margin="10,0,0,0" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" TextAlignment="Right" Width="94"/>
+                            <TextBlock Text=" ₽" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" TextAlignment="Left"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="10,5,0,0">
+                            <TextBlock Text="Ожидаемая прибыль:" FontSize="14" Width="150" TextAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockNZSdelkiSummaPribil" Margin="10,0,0,0" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" TextAlignment="Right" Width="94"/>
+                            <TextBlock Text=" ₽" Foreground="DarkGreen" FontWeight="Bold" FontSize="14" TextAlignment="Left"/>
+                        </StackPanel>
+
+                        <ListView Name="NZSdelkiList" ItemsSource="{x:Bind NZSdelki}" Margin="10,20,0,0" IsItemClickEnabled="True" ItemClick="NZSdelkiList_ItemClick">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="data:NZSdelkiData">
+                                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                        <TextBlock FontSize="13" Text="{x:Bind KONTRNAME}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="150" TextWrapping="WrapWholeWords"/>
+                                        <TextBlock FontSize="13" Text="{x:Bind SUMMAITOGO}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Width="70" TextWrapping="WrapWholeWords" TextAlignment="Right"/>
+                                        <TextBlock FontSize="13" Text="{x:Bind VALUTA}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5,0,0,0" TextWrapping="WrapWholeWords"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                    </StackPanel>
+                </ScrollViewer>
+
+            </StackPanel>
+
+            <StackPanel x:Name="StackPanelData3" RelativePanel.Below="TextBlockINTRO" RelativePanel.RightOf="StackPanelData1" Margin="20,20,0,0" Orientation="Vertical" Width="300" Height="620" Background="Azure">
+                <TextBlock x:Name="TextBlockSummaryData31" Text="СТАТУСЫ СДЕЛОК" Margin="10,10,0,0" FontWeight="SemiBold"/>
+
+                <Charting:Chart x:Name="PieChart" Width="496" Height="300" VerticalAlignment="Top">
+                    <Charting:PieSeries Margin="0" IndependentValuePath="DataName" DependentValuePath="DataValue"/>
+                    <Charting:Chart.Palette>
+                        <Charting:ResourceDictionaryCollection>
+                            <ResourceDictionary>
+                                <Style x:Key="DataPointStyle" TargetType="Control">
+                                    <Setter Property="Background" Value="White" />
+                                </Style>
+                            </ResourceDictionary>
+                            <ResourceDictionary>
+                                <Style x:Key="DataPointStyle" TargetType="Control">
+                                    <Setter Property="Background" Value="LightYellow" />
+                                </Style>
+                            </ResourceDictionary>
+                            <ResourceDictionary>
+                                <Style x:Key="DataPointStyle" TargetType="Control">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Style>
+                            </ResourceDictionary>
+                            <ResourceDictionary>
+                                <Style x:Key="DataPointStyle" TargetType="Control">
+                                    <Setter Property="Background" Value="MistyRose" />
+                                </Style>
+                            </ResourceDictionary>
+                            <ResourceDictionary>
+                                <Style x:Key="DataPointStyle" TargetType="Control">
+                                    <Setter Property="Background" Value="OliveDrab" />
+                                </Style>
+                            </ResourceDictionary>
+                            <ResourceDictionary>
+                                <Style x:Key="DataPointStyle" TargetType="Control">
+                                    <Setter Property="Background" Value="LightSalmon" />
+                                </Style>
+                            </ResourceDictionary>
+                            <ResourceDictionary>
+                                <Style x:Key="DataPointStyle" TargetType="Control">
+                                    <Setter Property="Background" Value="YellowGreen" />
+                                </Style>
+                            </ResourceDictionary>
+                            <ResourceDictionary>
+                                <Style x:Key="DataPointStyle" TargetType="Control">
+                                    <Setter Property="Background" Value="OrangeRed" />
+                                </Style>
+                            </ResourceDictionary>
+                        </Charting:ResourceDictionaryCollection>
+                    </Charting:Chart.Palette>
+                </Charting:Chart>
+
+
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <Rectangle Width="20" Height="20" Fill="White"/>
+                    <TextBlock Text="Без статуса:" Width="180" Margin="20,0,0,0" FontSize="14"/>
+                    <TextBlock x:Name="TextBlockSdelkaStatus1" Width="40" FontWeight="SemiBold" FontSize="14" Margin="12,0,0,0" TextAlignment="Right"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                    <Rectangle Width="20" Height="20" Fill="LightYellow"/>
+                    <TextBlock Text="Сделано предложение:" Width="180" Margin="20,0,0,0" FontSize="14" />
+                    <TextBlock x:Name="TextBlockSdelkaStatus2" Width="40" FontWeight="SemiBold" FontSize="14" Margin="12,0,0,0" TextAlignment="Right"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                    <Rectangle Width="20" Height="20" Fill="SkyBlue"/>
+                    <TextBlock Text="Заключен договор, выставлен счет:" Width="180" TextWrapping="WrapWholeWords" Margin="20,0,0,0" FontSize="14"/>
+                    <TextBlock x:Name="TextBlockSdelkaStatus3" Width="40" FontWeight="SemiBold" FontSize="14" Margin="12,0,0,0" TextAlignment="Right"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                    <Rectangle Width="20" Height="20" Fill="MistyRose"/>
+                    <TextBlock Text="В работе:" Width="180" Margin="20,0,0,0" FontSize="14"/>
+                    <TextBlock x:Name="TextBlockSdelkaStatus4" Width="40" FontWeight="SemiBold" FontSize="14" Margin="12,0,0,0" TextAlignment="Right"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                    <Rectangle Width="20" Height="20" Fill="OliveDrab"/>
+                    <TextBlock Text="Исполнена, ожидает подписания актов/накладных:" Width="180" TextWrapping="WrapWholeWords" Margin="20,0,0,0" FontSize="14"/>
+                    <TextBlock x:Name="TextBlockSdelkaStatus5" Width="40" FontWeight="SemiBold" FontSize="14" Margin="12,0,0,0" TextAlignment="Right"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                    <Rectangle Width="20" Height="20" Fill="LightSalmon"/>
+                    <TextBlock Text="Ожидание оплаты:" Width="180" Margin="20,0,0,0" FontSize="14"/>
+                    <TextBlock x:Name="TextBlockSdelkaStatus6" Width="40" FontWeight="SemiBold" FontSize="14" Margin="12,0,0,0" TextAlignment="Right"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                    <Rectangle Width="20" Height="20" Fill="YellowGreen"/>
+                    <TextBlock Text="Завершена:" Width="180" Margin="20,0,0,0" FontSize="14"/>
+                    <TextBlock x:Name="TextBlockSdelkaStatus7" Width="40" FontWeight="SemiBold" FontSize="14" Margin="12,0,0,0" TextAlignment="Right"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                    <Rectangle Width="20" Height="20" Fill="OrangeRed"/>
+                    <TextBlock Text="Договор расторгнут:" Width="180" Margin="20,0,0,0" FontSize="14"/>
+                    <TextBlock x:Name="TextBlockSdelkaStatus8" Width="40" FontWeight="SemiBold" FontSize="14" Margin="12,0,0,0" TextAlignment="Right"/>
+                </StackPanel>
+            </StackPanel>
+
+            <TextBlock x:Name="TextBlockNEWS" Text="ИСТОРИЯ ИЗМЕНЕНИЙ В ВЕРСИЯХ ПРИЛОЖЕНИЯ"  FontSize="16" FontWeight="SemiBold" Margin="20,40,0,0" Foreground="Green" RelativePanel.Below="StackPanelData2"/>
+
+            <ScrollViewer x:Name="NewsScrollViewer" RelativePanel.Below="TextBlockNEWS" Margin="20,20,0,0" Height="400" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollMode="Auto">
+                
+                <StackPanel x:Name="TextBlockNEWSOpisanie" Orientation="Vertical">
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="2.8.18" FontWeight="SemiBold" Width="45" />
+                        <TextBlock x:Name="Version2818" Text="Добавлена возможность просмотра информации о товарах и сделках в разделе &quot;Сводные данные&quot;." Margin="15,0,0,0" TextWrapping="WrapWholeWords"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <TextBlock Text="2.8.17" FontWeight="SemiBold" Width="45" />
+                        <TextBlock x:Name="Version2817" Text="Для защиты содержимого приложения введен обязательный при входе пин-код." Margin="15,0,0,0" TextWrapping="WrapWholeWords"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <TextBlock Text="2.8.16" FontWeight="SemiBold" Width="45" />
+                        <TextBlock x:Name="Version2816" Text="В разделе &quot;База сделок&quot; добавлен столбец &quot;Примечание&quot; для создания пометок и комментариев о сделках." Margin="15,0,0,0" TextWrapping="WrapWholeWords"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <TextBlock Text="2.8.15" FontWeight="SemiBold" Width="45" />
+                    <TextBlock x:Name="Version2815" Text="Исправлены ошибки добавления/удаления товаров и сделок. Добавлена возможность печати своих реквизитов в разделе &quot;Редактировать мои реквизиты&quot;." Margin="15,0,0,0" TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <TextBlock Text="2.8.14" FontWeight="SemiBold" Width="45" />
+                    <TextBlock x:Name="Version2814" Text="Косметические улучшения главной страницы и диалогов создания и редактирования сделок и товаров." Margin="15,0,0,0" TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <TextBlock Text="2.8.13" FontWeight="SemiBold" Width="45" />
+                    <TextBlock x:Name="Version2813" Text="Исправлены некоторые ошибки приложения и мобильного интерфейса. Добавлена возможность настраивать отображение столбцов в разделах &quot;База сделок&quot; и &quot;Мини-склад&quot;. В разделе &quot;База сделок&quot; добавлены столбцы &quot;ИНН&quot;, &quot;Контактное лицо&quot;, &quot;Контактный телефон&quot;. В разделе &quot;Мини-склад&quot; добавлен столбец &quot;Артикул&quot;." Margin="15,0,0,0" TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <TextBlock Text="2.8.12" FontWeight="SemiBold" Width="45" />
+                    <TextBlock x:Name="Version2812" Text="Небольшие косметические изменения, добавлена частичная адаптивность (поиск по базе) в разделах &quot;База сделок&quot; и &quot;Мини-склад&quot;  для устройств на базе Windows Phone 10." Margin="15,0,0,0" TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <TextBlock Text="2.8.11" FontWeight="SemiBold" Width="45"/>
+                    <TextBlock x:Name="Version2811" Text="Исправлена формула расчета стоимости закупки заканчивающихся товаров на складе." Margin="15,0,0,0" TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <TextBlock Text="2.8.10" FontWeight="SemiBold" Width="45"/>
+                    <TextBlock x:Name="Version2810" Text="Доработана страница &quot;Сводные данные&quot;, в том числе улучшено отображение страницы на мобильных устройствах с Windows Phone 10." Margin="15,0,0,0" TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <TextBlock Text=" 2.8.9" FontWeight="SemiBold" Width="45"/>
+                    <TextBlock x:Name="Version2809" Text="Обновлена страница &quot;Сводные данные&quot; - теперь здесь присутствуют панели с оперативной информацией." Margin="15,0,0,0" TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <TextBlock Text=" 2.8.8" FontWeight="SemiBold" Width="45"/>
+                    <TextBlock x:Name="Version2808" Text="В версии 2.8.8 в разделе &quot;Мини-склад&quot; добавлена колонка &quot;Необходимое количество&quot;. Внесите в эту колонку то количество товаров, которое минимально необходимо иметь на складе. При нажатии на кнопку &quot;Показать заканчивающиеся товары&quot; программа будет отображать список заканчивающихся товаров на складе (количество которых строго меньше заданного необходимого количества)." Margin="15,0,0,0" TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <TextBlock Text=" 2.8.7" FontWeight="SemiBold" Width="45"/>
+                    <TextBlock x:Name="Version2807" Text="Добавлены кварталы закрытия сделок для удобного расчета налогов и годы сделок для удобного расчета ключевых показателей за определенный год и квартал. Также исправлены ошибки загрузки и добавления сделок .docdata. В версии 2.8.7 серьезно улучшена система поиска по сделкам в &quot;Базе сделок&quot; и товарам на &quot;Мини-складе&quot;." Margin="15,0,0,0" TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+
+            </StackPanel>
+            </ScrollViewer>
+
+            <TextBlock x:Name="TextBlockCreateDocuments5" Text="ВОЗМОЖНОСТИ ПРИЛОЖЕНИЯ МАСТЕРКОНД.ДОКУМЕНТЫ"  FontSize="16" FontWeight="SemiBold" Margin="20,40,0,0" RelativePanel.Below="NewsScrollViewer" Foreground="Green"/>
+            <TextBlock x:Name="TextBlockCreateDocumentsOpisanie5" Text="В разделе 'Документы юр.лиц' вы можете быстро создать смету (коммерческое предложение), счёт, договор, акт, товарную накладную для вашей сделки. Данная программа расчитана на компаний и индивидуальных предпринимателей, работающих на территории Российской Федерации и применяющих Упрощенную Систему Налогообложения (УСН). Шаблоны документов вшиты в программу и не редактируется, то есть отредактировать полностью весь договор, счет, акт, накладную не получится, за исключением вставки в поля программы своих данных. Однако применяемые в программе шаблоны полностью соответствуют законодательству Российской Федерации и не вызывают нареканий со стороны юристов контагентов." TextWrapping="WrapWholeWords"  Margin="20,20,0,0" RelativePanel.Below="TextBlockCreateDocuments5"  />
+
+
+            <TextBlock x:Name="TextBlockCreateDocumentsOpisanie15" Text="В разделе 'Добавить реквизиты контрагента' вы можете быстро создать файл реквизитов для дальнейшего использования в разделе 'Документы юр.лица'. " TextWrapping="WrapWholeWords"  Margin="20,20,0,0" RelativePanel.Below="TextBlockCreateDocumentsOpisanie5"  />
+            <TextBlock x:Name="TextBlockCreateDocumentsOpisanie25" Text="В разделе 'Редактировать мои реквизиты' вы можете быстро создать или редактировать файл своих реквизитов для дальнейшего использования в разделе 'Документы юр.лица'. " TextWrapping="WrapWholeWords"  Margin="20,20,0,0" RelativePanel.Below="TextBlockCreateDocumentsOpisanie15"  />
+
+            <TextBlock RelativePanel.Below="TextBlockCreateDocumentsOpisanie25" Margin="0,40,0,0"/>
+            
+            <TextBlock x:Name="TextBlockSummaItogoKlientBuffer" Visibility="Collapsed"/>
+            <TextBlock x:Name="TextBlockSummaItogoRasxodiBuffer" Visibility="Collapsed"/>
+            <TextBlock x:Name="BufferStatus1" Visibility="Collapsed"/>
+            <TextBlock x:Name="BufferStatus2" Visibility="Collapsed"/>
+            <TextBlock x:Name="BufferStatus3" Visibility="Collapsed"/>
+            <TextBlock x:Name="BufferStatus4" Visibility="Collapsed"/>
+            <TextBlock x:Name="BufferStatus5" Visibility="Collapsed"/>
+            <TextBlock x:Name="BufferStatus6" Visibility="Collapsed"/>
+            <TextBlock x:Name="BufferStatus7" Visibility="Collapsed"/>
+            <TextBlock x:Name="BufferStatus8" Visibility="Collapsed"/>
+
+            <ContentDialog x:Name="ContentDialogZavershennieSdelki" VerticalAlignment="Stretch" Title="ЗАВЕРШЕННАЯ СДЕЛКА" PrimaryButtonText="ОК" >
+                <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Наименование контрагента (сокр.):" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDKontrName" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="ИНН контрагента:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDINN" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Моё наименование (сокр.):" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDMyName" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Дата заключения договора:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDDataDogovora" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Номер договора:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDNomerDogovora" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Контактное лицо (ФИО):" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDKontakt" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Контактный телефон:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDKontaktPhone" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Дата подписания накладной:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDDataNakladnoj" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Дата подписания акта:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDDataAkta" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Сумма расходов при исполнении договора:" Margin="20,20,0,0" HorizontalAlignment="Left" Width="300" TextWrapping="WrapWholeWords"/>
+                            <TextBlock x:Name="TextBlockCDRasxodi" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Полная стоимость сделки:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDItogo" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Примечание:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDPrimechanie" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Статус сделки:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDStatusSdelki" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="ДАННЫЕ ДЛЯ НАЛОГОВОГО УЧЕТА" Margin="20,20,0,0" HorizontalAlignment="Left" FontWeight="SemiBold"/>
+                            <TextBlock Text="Квартал завершения сделки:" Margin="20,15,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDKvartalSdelki" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                            <TextBlock Text="Год сделки:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDGodSdelki" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </ContentDialog>
+
+            <ContentDialog x:Name="ContentDialogNZavershennieSdelki" VerticalAlignment="Stretch" Title="НЕЗАВЕРШЕННАЯ СДЕЛКА" PrimaryButtonText="ОК">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Наименование контрагента (сокр.):" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDKontrName1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="ИНН контрагента:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDINN1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Моё наименование (сокр.):" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDMyName1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Дата заключения договора:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDDataDogovora1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Номер договора:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDNomerDogovora1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Контактное лицо (ФИО):" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDKontakt1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Контактный телефон:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDKontaktPhone1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Дата подписания накладной:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDDataNakladnoj1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Дата подписания акта:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDDataAkta1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Сумма расходов при исполнении договора:" Margin="20,20,0,0" HorizontalAlignment="Left" Width="300" TextWrapping="WrapWholeWords"/>
+                            <TextBlock x:Name="TextBlockCDRasxodi1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Полная стоимость сделки:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDItogo1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Примечание:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDPrimechanie1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Статус сделки:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDStatusSdelki1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="ДАННЫЕ ДЛЯ НАЛОГОВОГО УЧЕТА" Margin="20,20,0,0" HorizontalAlignment="Left" FontWeight="SemiBold"/>
+                            <TextBlock Text="Квартал завершения сделки:" Margin="20,15,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDKvartalSdelki1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                            <TextBlock Text="Год сделки:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDGodSdelki1" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </ContentDialog>
+
+            <ContentDialog x:Name="ContentDialogZTovari" VerticalAlignment="Stretch" Title="ЗАКАНЧИВАЮЩИЙСЯ ТОВАР" PrimaryButtonText="ОК">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto">
+                    <StackPanel Orientation="Vertical">
+                        
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Наименование товара:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDTovarName" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Артикул:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDTovarArtikul" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Количество товара на складе:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDTovarKolvo" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Необходимое количество товара на складе:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDTovarNKolvo" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Единица измерения:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDTovarEdIzm" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Закупочная цена(себестоимость):" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDTovarZCena" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Цена товара для клиента:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDTovarKlientCena" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Примечание:" Margin="20,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="TextBlockCDTovarPrimechanie" Width="300" Margin="20,10,0,0" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" FontWeight="SemiBold" Foreground="Green"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </ContentDialog>
+
+        </RelativePanel>
+
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocuments5.Width" Value="700" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="700" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie15.Width" Value="700" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie25.Width" Value="700" />
+                        <Setter Target="TextBlockNEWS.Width" Value="700" />
+                        <Setter Target="TextBlockNEWSOpisanie.Width" Value="700" />
+                        <Setter Target="NewsScrollViewer.Width" Value="720" />
+                        
+
+                        <Setter Target="Version2807.Width" Value="640"/>
+                        <Setter Target="Version2808.Width" Value="640"/>
+                        <Setter Target="Version2809.Width" Value="640"/>
+                        <Setter Target="Version2810.Width" Value="640"/>
+                        <Setter Target="Version2811.Width" Value="640"/>
+                        <Setter Target="Version2812.Width" Value="640"/>
+                        <Setter Target="Version2813.Width" Value="640"/>
+                        <Setter Target="Version2814.Width" Value="640"/>
+                        <Setter Target="Version2815.Width" Value="640"/>
+                        <Setter Target="Version2816.Width" Value="640"/>
+                        <Setter Target="Version2817.Width" Value="640"/>
+                        <Setter Target="Version2818.Width" Value="640"/>
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="WideState2">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="520" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocuments5.Width" Value="420" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="420" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie15.Width" Value="420" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie25.Width" Value="420" />
+                        <Setter Target="TextBlockNEWS.Width" Value="420" />
+                        <Setter Target="TextBlockNEWSOpisanie.Width" Value="420" />
+                        <Setter Target="NewsScrollViewer.Width" Value="440" />
+
+                        <Setter Target="StackPanelData1.Orientation" Value="Vertical"/>
+                        <Setter Target="StackPanelData2.Orientation" Value="Vertical"/>
+                        <Setter Target="StackPanelData1SV1.Margin" Value="0,0,0,0"/>
+                        <Setter Target="StackPanelData1SV2.Margin" Value="0,20,0,0"/>
+                        <Setter Target="StackPanelData2SV1.Margin" Value="0,0,0,0"/>
+                        <Setter Target="StackPanelData2SV2.Margin" Value="0,20,0,0"/>
+
+                        <Setter Target="Version2807.Width" Value="370"/>
+                        <Setter Target="Version2808.Width" Value="370"/>
+                        <Setter Target="Version2809.Width" Value="370"/>
+                        <Setter Target="Version2810.Width" Value="370"/>
+                        <Setter Target="Version2811.Width" Value="370"/>
+                        <Setter Target="Version2812.Width" Value="370"/>
+                        <Setter Target="Version2813.Width" Value="370"/>
+                        <Setter Target="Version2814.Width" Value="370"/>
+                        <Setter Target="Version2815.Width" Value="370"/>
+                        <Setter Target="Version2816.Width" Value="370"/>
+                        <Setter Target="Version2817.Width" Value="370"/>
+                        <Setter Target="Version2818.Width" Value="370"/>
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TextBlockCreateDocuments5.Width" Value="300" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie5.Width" Value="300" />
+                        <Setter Target="TextBlockCreateDocumentsOpisanie15.Width" Value="300"/>
+                        <Setter Target="TextBlockCreateDocumentsOpisanie25.Width" Value="300"/>
+                        <Setter Target="TextBlockNEWS.Width" Value="300" />
+                        <Setter Target="TextBlockNEWSOpisanie.Width" Value="300" />
+                        <Setter Target="NewsScrollViewer.Width" Value="320" />
+
+                        <Setter Target="StackPanelData1.Orientation" Value="Vertical"/>
+                        <Setter Target="StackPanelData2.Orientation" Value="Vertical"/>
+                        <Setter Target="StackPanelData1SV1.Margin" Value="0,0,0,0"/>
+                        <Setter Target="StackPanelData1SV2.Margin" Value="0,20,0,0"/>
+                        <Setter Target="StackPanelData2SV1.Margin" Value="0,0,0,0"/>
+                        <Setter Target="StackPanelData2SV2.Margin" Value="0,20,0,0"/>
+                        
+                        <Setter Target="StackPanelData3.(RelativePanel.Below)" Value="StackPanelData2"/>
+                        <Setter Target="StackPanelData3.(RelativePanel.RightOf)" Value=""/>
+                        <Setter Target="StackPanelData3.Margin" Value="20,20,0,0"/>
+
+                        <Setter Target="TextBlockNEWS.(RelativePanel.Below)" Value="StackPanelData3"/>
+
+                        <Setter Target="Version2807.Width" Value="230"/>
+                        <Setter Target="Version2808.Width" Value="230"/>
+                        <Setter Target="Version2809.Width" Value="230"/>
+                        <Setter Target="Version2810.Width" Value="230"/>
+                        <Setter Target="Version2811.Width" Value="230"/>
+                        <Setter Target="Version2812.Width" Value="230"/>
+                        <Setter Target="Version2813.Width" Value="230"/>
+                        <Setter Target="Version2814.Width" Value="230"/>
+                        <Setter Target="Version2815.Width" Value="230"/>
+                        <Setter Target="Version2816.Width" Value="230"/>
+                        <Setter Target="Version2817.Width" Value="230"/>
+                        <Setter Target="Version2818.Width" Value="230"/>
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+    </ScrollViewer>
+</Page>

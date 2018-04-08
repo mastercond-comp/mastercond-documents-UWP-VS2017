@@ -1,0 +1,166 @@
+﻿<Page
+    x:Class="Мастерконд.Документы.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Мастерконд.Документы"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <SplitView x:Name="MySplitView" DisplayMode="CompactInline" IsPaneOpen="False">
+
+        <SplitView.Pane>
+            <ScrollViewer ScrollViewer.HorizontalScrollMode="Auto" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="" Width="{Binding ElementName=MySplitView, Path=CompactPaneLength}" VerticalAlignment="Top" Click="HamburgerButton_Click" Foreground="White" Background="#99BC64" FontWeight="ExtraBold" BorderBrush="White" BorderThickness="0.5">
+                    </Button>
+                    <ListBox x:Name="MenuListBox" SelectionMode="Single" SelectionChanged="MenuListBox_SelectionChanged" Background="#FFF3F3F3">
+
+                        <ListBoxItem Name="Root">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="24" Text="" />
+                                <TextBlock  Margin="20,0,0,0" Text="Сводные данные" />
+                            </StackPanel>
+                        </ListBoxItem>
+                        
+                        <ListBoxItem Name="Documents">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="24" Text="" />
+                                <TextBlock  Margin="20,0,0,0" Text="Документы (юр.лица)" />
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="SpisokSdelok">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="24" Text="" />
+                                <TextBlock  Margin="20,0,0,0" Text="База сделок" />
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="MiniSkladPage">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="24" Text="" />
+                                <TextBlock  Margin="20,0,0,0" Text="Мини-склад" />
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="TZakl">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="24" Text="" />
+                                <TextBlock  Margin="20,0,0,0" Text="Техническое заключение" />
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="AddKontragent">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="24" Text="" />
+                                <TextBlock  Margin="20,0,0,0" Text="Добавить контрагента" />
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="AddMyRekviziti">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="24" Text="" />
+                                <TextBlock  Margin="20,0,0,0" Text="Редактировать мои реквизиты" />
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="SettingsPage">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="24" Text="" />
+                                <TextBlock  Margin="20,0,0,0" Text="Настройки" />
+                            </StackPanel>
+                        </ListBoxItem>
+
+
+                        <ListBoxItem Name="Help">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="24" Text="" />
+                                <TextBlock  Margin="20,0,0,0" Text="Справка" />
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="About">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="24" Text="" />
+                                <TextBlock  Margin="20,0,0,0" Text="О программе" />
+                            </StackPanel>
+                        </ListBoxItem>
+
+                    </ListBox>
+                </StackPanel>
+            </ScrollViewer>
+        </SplitView.Pane>
+
+        <SplitView.Content>
+            <ScrollViewer x:Name="MainScrollViewer" ScrollViewer.HorizontalScrollMode="Auto" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Hidden"  ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <StackPanel Orientation="Vertical">
+            <Frame Name="ContentFrame" Visibility="Collapsed"></Frame>
+
+            <StackPanel Orientation="Vertical" Margin="20,20,0,0" x:Name="StackPanelEnterPIN">
+                        
+                <TextBlock Text="ВХОД В ПРИЛОЖЕНИЕ" FontSize="20" FontWeight="SemiBold" Margin="10,0,0,0"/>
+                        <StackPanel Orientation="Vertical" Margin="0,35,0,0">
+                            <TextBlock Text="Введите ПИН:" HorizontalAlignment="Left" Margin="10,10,0,0"/>
+                            <PasswordBox x:Name="PinCodePasswordBox" Width="300" Margin="10,10,0,0" HorizontalAlignment="Left"/>
+                            <Button x:Name="ButtonEnterPin" Content="Войти" Click="ButtonEnterPin_Click" Margin="10,30,0,0" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                        
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="20,20,0,0" x:Name="StackPanelSETUPPIN" Visibility="Collapsed">
+                        <TextBlock Text="НАСТРОЙКА ПИН-КОДА" FontSize="20" FontWeight="SemiBold"/>
+                        <StackPanel Orientation="Vertical" Margin="0,35,0,0">
+                            <TextBlock Text="Введите буквенный или цифровой ПИН-код:" Margin="10,10,0,0" HorizontalAlignment="Left"/>
+                            <PasswordBox x:Name="PasswordBoxNEWPIN1" Width="300" Margin="10,20,0,0" HorizontalAlignment="Left"/>
+                            <TextBlock Text="Повторите ПИН-код:" Margin="10,20,0,0" HorizontalAlignment="Left"/>
+                            <PasswordBox x:Name="PasswordBoxNEWPIN2" Width="300" Margin="10,20,0,0" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                        
+                <Button x:Name="ButtonSetupPIN" Content="Установить ПИН-код" Click="ButtonSetupPIN_Click" Margin="10,35,0,0" HorizontalAlignment="Left"/>
+                        <TextBlock x:Name="StatusSetupPIN" Margin="10,20,0,0"/>
+
+                    </StackPanel>
+
+            <TextBlock x:Name="StatusPIN" Margin="30,20,0,0"/>
+            </StackPanel>
+            </ScrollViewer>
+            
+        </SplitView.Content>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MySplitView.IsPaneOpen" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="WideState2">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="520" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MySplitView.IsPaneOpen" Value="False" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MySplitView.IsPaneOpen" Value="False" />
+                        <Setter Target="MySplitView.DisplayMode" Value="CompactOverlay"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+    </SplitView>
+
+
+
+</Page>

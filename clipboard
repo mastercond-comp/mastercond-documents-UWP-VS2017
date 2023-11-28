@@ -1,6 +1,0 @@
-﻿<Setter Target="TextBlockSearchAktDate.(RelativePanel.Below)" Value="TextBoxSearchKontragent"/>
-                        <Setter Target="TextBoxSearchAktDate.(RelativePanel.Below)" Value="TextBlockSearchAktDate"/>
-                        <Setter Target="TextBoxSearchAktDate.(RelativePanel.RightOf)" Value=""/>
-                        <Setter Target="TextBoxSearchAktDate.Margin" Value="30,10,0,0"/>
-                        <Setter Target="ButtonSearchAktDate.(RelativePanel.Below)" Value="TextBlockSearchAktDate"/>
-                        <Setter Target="ButtonSearchAktDate.Margin" Value="10,10,0,0"/>
